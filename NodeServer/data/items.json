@@ -1,0 +1,8 @@
+{
+    "storeName": "Balaji Kiryana Store",
+    "groceries": [
+        { "name": "milk", "price": "22" },
+        { "name": "tea", "price": "10" },
+        { "name": "chips", "price": "30" }
+    ]
+}

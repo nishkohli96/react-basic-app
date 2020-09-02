@@ -1,0 +1,14 @@
+NodeServer/node_modules
+NodeServer/package.json
+NodeServer/package-lock.json
+
+public
+src/logo.svg
+
+.eslintrc.json
+.gitignore
+.prettierignore
+.prettierrc
+package.json
+README.md
+yarn.lock
