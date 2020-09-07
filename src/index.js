@@ -8,13 +8,16 @@ import App from './App';
 import UIComponents from './pages/UIComponents';
 import PageNotFound from './components/PageNotFound';
 import Dashboard from './pages/Dashboard';
+import StyledComponents from './pages/StyledComponents';
 
 const routing = (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/ui" component={UIComponents} />
+            <Route path="/react-basic-app" component={App} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/styled" component={StyledComponents} />
             <Route path="/404" component={PageNotFound} />
             <Redirect to="/404" />
         </Switch>

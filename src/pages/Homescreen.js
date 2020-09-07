@@ -73,6 +73,15 @@ function Reactbtns() {
                 Activate Lazers
             </BootstrapButton>
 
+            <BootstrapButton
+                variant="outlined"
+                color="primary"
+                disableRipple
+                onClick={navigateStyled}
+            >
+                GoTo Styled Components
+            </BootstrapButton>
+
             <Link
                 to={{
                     pathname: '/ui',
@@ -95,9 +104,13 @@ function Reactbtns() {
 }
 
 function activateLasers() {
-    console.log('lazers activated');
     window.location.href = '/ui';
 }
+
+function navigateStyled() {
+    window.location.href = '/styled';
+}
+
 /* Run node server */
 function fetchData() {
     fetch('http://localhost:4000/items', {
