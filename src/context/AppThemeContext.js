@@ -6,7 +6,7 @@ import { LightTheme } from '../themes/light';
 
 export const ThemeToggleContext = React.createContext();
 
-const AppThemeContext = ({ children }) => {
+export const AppThemeContext = ({ children }) => {
 
     const [currentTheme, setTheme] = React.useState('light');
 
@@ -34,4 +34,4 @@ const AppThemeContext = ({ children }) => {
     );
 }
 
-export default AppThemeContext;
+// export default AppThemeContext;

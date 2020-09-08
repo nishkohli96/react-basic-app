@@ -9,7 +9,7 @@ import Dashboard from './pages/Dashboard';
 import StyledCompsPage from './pages/StyledCompsPage';
 import ThemeCompsPage from './pages/ThemeCompsPage';
 
-import AppThemeContext from './context/AppThemeContext';
+import { AppThemeContext } from './context/AppThemeContext';
 
 const App = () => {
     return (

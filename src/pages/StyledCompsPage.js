@@ -38,11 +38,10 @@ function goToThemedComp() {
 const StyledCompsPage = () => {
 
     const { theme, changeTheme } = useContext(ThemeToggleContext);
-    
     const changeAppTheme = () => {
-        changeTheme((theme === 'light')?'dark':'light' )
+        changeTheme((theme === 'light')?'dark':'light' ) 
     };
-    
+    console.log("contde " ,useContext(ThemeToggleContext))
     return (
         <Container>
             <Wrapper>
