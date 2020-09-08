@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Button } from '../styled-components/StyledComponents';
+import { Button, Title } from '../styled-components/StyledComponents';
 import ThemedButton from '../styled-components/ThemeButton';
 import { PageBG, Text, DIV } from '../styled-components/ThemedComponents';
 import { ThemeToggleContext } from '../context/AppThemeContext';
+import InvertColorsIcon from '@material-ui/icons/InvertColors';
 
 /* We are passing a default theme for Buttons that arent wrapped in the ThemeProvider */
 const btntheme = {
     main: 'mediumseagreen',
 };
 
-/* I had previously used the ThemeProvider here in the return method, now moved it
-    to index.js page so that it can be applied throughout the app */
+/* The app Theme changes through React Context; code in the context folder */
+
 const ThemeCompsPage = () => {
-    console.log("cont ",React.useContext(ThemeToggleContext))
+    const { theme, changeTheme } = useContext(ThemeToggleContext);
+    const changeAppTheme = () => {
+        changeTheme(theme === 'light' ? 'dark' : 'light');
+    };
 
     return (
         <PageBG>
             <DIV>
-                <Text> This Text uses theme color </Text>
+                <Title> Themed Components </Title>
+                <Text> Click on the Below Btn to switch Themes </Text>
+                <InvertColorsIcon
+                    style={{ color: 'blue' }}
+                    onClick={changeAppTheme}
+                />
                 <Button>Normal</Button>
                 <ThemedButton theme={btntheme}>Themed</ThemedButton>
             </DIV>

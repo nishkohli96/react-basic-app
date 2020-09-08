@@ -7,31 +7,37 @@ import { LightTheme } from '../themes/light';
 export const ThemeToggleContext = React.createContext();
 
 export const AppThemeContext = ({ children }) => {
+    /* Set theme as a localStorage item to prevent loosing them on page refresh */
+    let appTheme = localStorage.getItem('theme');
+    if (!appTheme) {
+        appTheme = 'light';
+        localStorage.setItem('theme', appTheme);
+    }
 
-    const [currentTheme, setTheme] = React.useState('light');
+    const [currentTheme, setTheme] = React.useState(appTheme);
 
     const themeToggle = (newTheme) => {
-        console.log("teying to set ", newTheme);
-        // const mode = currentTheme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
         setTheme(newTheme);
-        console.log("new context: ",(ThemeToggleContext));
     };
 
     const Theme = ({ children }) => {
         return (
-            <ThemeProvider theme={currentTheme === 'light' ? LightTheme : DarkTheme}>
+            <ThemeProvider
+                theme={currentTheme === 'light' ? LightTheme : DarkTheme}
+            >
                 {children}
             </ThemeProvider>
         );
     };
 
-    return(
-        <ThemeToggleContext.Provider value={{ theme: currentTheme , changeTheme: themeToggle }}>
-            <Theme>
-                { children }
-            </Theme>
+    return (
+        <ThemeToggleContext.Provider
+            value={{ theme: currentTheme, changeTheme: themeToggle }}
+        >
+            <Theme>{children}</Theme>
         </ThemeToggleContext.Provider>
     );
-}
+};
 
 // export default AppThemeContext;

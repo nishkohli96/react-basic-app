@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const PageBG = styled.div`
     background-color: ${(props) => props.theme.bodybgColor};
-    width: 95vw;
-    height: 90vh;
     padding: 20px;
 `;
 

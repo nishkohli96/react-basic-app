@@ -4,7 +4,9 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import SaveIcon from '@material-ui/icons/Save';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import ReduxCounter from '../components/ReduxCounter';
+import { useHistory } from 'react-router-dom';
+
+import ThemeCompsPage from './ThemeCompsPage';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,6 +44,7 @@ const BootstrapButton = withStyles({
 
 function Reactbtns() {
     const classes = useStyles();
+    const history = useHistory();
 
     return (
         <div className={classes.root}>
@@ -77,8 +80,7 @@ function Reactbtns() {
                 variant="outlined"
                 color="primary"
                 disableRipple
-                as="a"
-                href="/styled"
+                onClick={() => history.push('/styled')}
             >
                 GoTo Styled Components
             </BootstrapButton>
@@ -99,7 +101,13 @@ function Reactbtns() {
             >
                 Go to dashboard
             </Link>
-            <ReduxCounter />
+            <Link
+                to={{
+                    pathname: '/redux',
+                }}
+            >
+                Open a To-do List
+            </Link>
         </div>
     );
 }
@@ -151,7 +159,12 @@ function sendData() {
 
 class Homescreen extends React.Component {
     render() {
-        return <Reactbtns />;
+        return (
+            <>
+                <ThemeCompsPage />
+                <Reactbtns />
+            </>
+        );
     }
 }
 

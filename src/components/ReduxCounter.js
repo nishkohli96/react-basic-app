@@ -28,11 +28,9 @@ const ReduxCounter = () => {
                         })
                     }
                 >
-                    {' '}
-                    {item.completed ? underlineText(item.text) : item.text}{' '}
+                    {item.completed ? underlineText(item.text) : item.text}
                 </div>
                 <div className="itemRemove">
-                    {' '}
                     <CloseIcon
                         onClick={() =>
                             ReduxStore.dispatch({
@@ -40,7 +38,7 @@ const ReduxCounter = () => {
                                 id: item.id,
                             })
                         }
-                    />{' '}
+                    />
                 </div>
             </div>
         );
@@ -82,7 +80,8 @@ const ReduxCounter = () => {
                 }
                 return 'No Pending Tasks';
             }
-            default : return 'No Tasks Noted Down';
+            default:
+                return 'No Tasks Noted Down';
         }
     };
 
@@ -92,8 +91,7 @@ const ReduxCounter = () => {
                 <ul type="square">
                     {list.map((item) => (
                         <li key={item.id}>
-                            {' '}
-                            <ToDoItem item={item} />{' '}
+                            <ToDoItem item={item} />
                         </li>
                     ))}
                 </ul>
@@ -106,7 +104,7 @@ const ReduxCounter = () => {
     };
 
     return (
-        <>
+        <div style={{ padding: '20px' }}>
             <p> Redux Counter and To-Do List Example </p>
             <p> Counter Value : {count} </p>
             <Button
@@ -151,30 +149,24 @@ const ReduxCounter = () => {
                 </Button>
                 <div className="listOptions">
                     <div>
-                        {' '}
-                        <FilterItem
-                            filterName="SHOW_ALL"
-                            title="All Items"
-                        />{' '}
+                        <FilterItem filterName="SHOW_ALL" title="All Items" />
                     </div>
                     <div>
-                        {' '}
                         <FilterItem
                             filterName="ITEMS_PENDING"
                             title="Pending"
-                        />{' '}
+                        />
                     </div>
                     <div>
-                        {' '}
                         <FilterItem
                             filterName="ITEMS_COMPLETED"
                             title="Completed"
-                        />{' '}
+                        />
                     </div>
                 </div>
                 <RenderList />
             </div>
-        </>
+        </div>
     );
 };
 

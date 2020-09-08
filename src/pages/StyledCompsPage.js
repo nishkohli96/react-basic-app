@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
-import { ThemeToggleContext } from '../context/AppThemeContext';
 import {
     Container,
     Title,
@@ -11,7 +11,6 @@ import {
     PswdInput,
 } from '../styled-components/StyledComponents';
 import { PageBG, Text } from '../styled-components/ThemedComponents';
-import InvertColorsIcon from '@material-ui/icons/InvertColors';
 
 /* A new component based on Button, but with some override styles */
 const TomatoButton = styled(Button)`
@@ -29,19 +28,11 @@ const NewPageBG = styled(PageBG)`
     align-self: centre;
 `;
 
-function goToThemedComp() {
-    window.location.href = '/theme';
-}
-
 /* Imp: Define styled component outside of the render method, 
     otherwise it will be recreated on every single render pass */
 const StyledCompsPage = () => {
+    const history = useHistory();
 
-    const { theme, changeTheme } = useContext(ThemeToggleContext);
-    const changeAppTheme = () => {
-        changeTheme((theme === 'light')?'dark':'light' ) 
-    };
-    console.log("contde " ,useContext(ThemeToggleContext))
     return (
         <Container>
             <Wrapper>
@@ -53,16 +44,14 @@ const StyledCompsPage = () => {
                 </Button>
                 <Input defaultValue="@geelen" type="text" inputColor="blue" />
                 <PswdInput />
-                <Title> Themed Components </Title>
-                <Text> Click on the Below Btn to switch Themes </Text>
-                <InvertColorsIcon
-                    style={{ color: 'blue' }}
-                    onClick={changeAppTheme}
-                />
+                <Button onClick={() => history.push('/theme')}>
+                    {' '}
+                    Go to Themed Page{' '}
+                </Button>
                 <NewPageBG>
                     <Text> Themed Text inside a Themed Div</Text>
                 </NewPageBG>
-                <Button onClick={goToThemedComp}>Go to Themed Page</Button>
+                <Text> This Text uses theme color </Text>
             </Wrapper>
         </Container>
     );

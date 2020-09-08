@@ -8,6 +8,7 @@ import PageNotFound from './components/PageNotFound';
 import Dashboard from './pages/Dashboard';
 import StyledCompsPage from './pages/StyledCompsPage';
 import ThemeCompsPage from './pages/ThemeCompsPage';
+import ReduxCounter from './components/ReduxCounter';
 
 import { AppThemeContext } from './context/AppThemeContext';
 
@@ -22,12 +23,13 @@ const App = () => {
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/styled" component={StyledCompsPage} />
                     <Route path="/theme" component={ThemeCompsPage} />
+                    <Route path="/redux" component={ReduxCounter} />
                     <Route path="/404" component={PageNotFound} />
                     <Redirect to="/404" />
                 </Switch>
             </BrowserRouter>
         </AppThemeContext>
     );
-}
+};
 
 export default App;
