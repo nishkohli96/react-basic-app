@@ -82,6 +82,7 @@ const ReduxCounter = () => {
                 }
                 return 'No Pending Tasks';
             }
+            default : return 'No Tasks Noted Down';
         }
     };
 

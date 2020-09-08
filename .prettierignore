@@ -3,7 +3,9 @@ NodeServer/package.json
 NodeServer/package-lock.json
 
 public
+build
 src/logo.svg
+src/assets
 
 .eslintrc.json
 .gitignore

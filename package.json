@@ -1,5 +1,4 @@
 {
-  "name": "react-basic-app",
   "homepage": "https://nishkohli96.github.io/react-basic-app",
   "version": "1.0.0",
   "private": true,
@@ -25,7 +24,8 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "styled-theming": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,6 +51,8 @@
     ]
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.3",
+    "babel-plugin-styled-components": "^1.11.1",
     "eslint": "6.6.0",
     "eslint-plugin-react": "^7.20.6",
     "gh-pages": "^3.1.0",
@@ -69,5 +71,8 @@
       "eslint --fix-dry-run",
       "prettier --write"
     ]
-  }
+  },
+  "plugins": [
+    "babel-plugin-styled-components"
+  ]
 }

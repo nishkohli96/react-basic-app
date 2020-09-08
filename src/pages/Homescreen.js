@@ -77,7 +77,8 @@ function Reactbtns() {
                 variant="outlined"
                 color="primary"
                 disableRipple
-                onClick={navigateStyled}
+                as="a"
+                href="/styled"
             >
                 GoTo Styled Components
             </BootstrapButton>
@@ -105,10 +106,6 @@ function Reactbtns() {
 
 function activateLasers() {
     window.location.href = '/ui';
-}
-
-function navigateStyled() {
-    window.location.href = '/styled';
 }
 
 /* Run node server */
