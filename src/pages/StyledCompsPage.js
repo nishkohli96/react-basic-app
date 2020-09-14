@@ -45,11 +45,10 @@ const StyledCompsPage = () => {
                 <Input defaultValue="@geelen" type="text" inputColor="blue" />
                 <PswdInput />
                 <Button onClick={() => history.push('/theme')}>
-                    {' '}
-                    Go to Themed Page{' '}
+                    Go to Themed Page
                 </Button>
                 <NewPageBG>
-                    <Text> Themed Text inside a Themed Div</Text>
+                    <Text>Themed Text inside a Themed Div</Text>
                 </NewPageBG>
                 <Text> This Text uses theme color </Text>
             </Wrapper>

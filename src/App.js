@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch, BrowserRouter } from 'react-router-dom';
 
-import './App.css';
 import Homescreen from './pages/Homescreen';
 import UIComponents from './pages/UIComponents';
 import PageNotFound from './components/PageNotFound';
@@ -11,6 +10,7 @@ import ThemeCompsPage from './pages/ThemeCompsPage';
 import ReduxCounter from './components/ReduxCounter';
 
 import { AppThemeContext } from './context/AppThemeContext';
+import './App.css';
 
 const App = () => {
     return (
@@ -19,7 +19,6 @@ const App = () => {
                 <Switch>
                     <Route exact path="/" component={Homescreen} />
                     <Route path="/ui" component={UIComponents} />
-                    <Route path="/react-basic-app" component={App} />
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/styled" component={StyledCompsPage} />
                     <Route path="/theme" component={ThemeCompsPage} />

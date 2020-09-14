@@ -1,0 +1,4 @@
+{
+    "welcomeText" : "Bienvenue dans l'application {{ framework }}",
+    "currentLang" : "La langue actuellement utilisée est le français"
+}

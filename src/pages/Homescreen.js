@@ -7,6 +7,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useHistory } from 'react-router-dom';
 
 import ThemeCompsPage from './ThemeCompsPage';
+import LangChange from '../components/LangChange';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -161,6 +162,7 @@ class Homescreen extends React.Component {
     render() {
         return (
             <>
+                <LangChange />
                 <ThemeCompsPage />
                 <Reactbtns />
             </>
