@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import {
     Container,
@@ -32,6 +33,7 @@ const NewPageBG = styled(PageBG)`
     otherwise it will be recreated on every single render pass */
 const StyledCompsPage = () => {
     const history = useHistory();
+    const { t } = useTranslation('common');
 
     return (
         <Container>
@@ -49,6 +51,7 @@ const StyledCompsPage = () => {
                 </Button>
                 <NewPageBG>
                     <Text>Themed Text inside a Themed Div</Text>
+                    <Text>{t('currentLang')}</Text>
                 </NewPageBG>
                 <Text> This Text uses theme color </Text>
             </Wrapper>

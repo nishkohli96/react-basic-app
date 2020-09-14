@@ -6,7 +6,6 @@ public
 build
 src/logo.svg
 src/assets
-src/i18/langfiles
 
 .eslintrc.json
 .gitignore

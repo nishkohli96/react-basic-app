@@ -162,7 +162,9 @@ class Homescreen extends React.Component {
     render() {
         return (
             <>
-                <LangChange />
+                <React.Suspense fallback="loading translations.....">
+                    <LangChange />
+                </React.Suspense>
                 <ThemeCompsPage />
                 <Reactbtns />
             </>
