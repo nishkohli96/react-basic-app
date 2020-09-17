@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const LangChange = () => {
     const [t, i18n] = useTranslation('common');
@@ -13,6 +14,7 @@ const LangChange = () => {
             <button onClick={() => i18n.changeLanguage('fr')}>
                 Change Lang to FR
             </button>
+            <Link to={{ pathname: '/form' }}> GO to Form </Link>
         </>
     );
 };

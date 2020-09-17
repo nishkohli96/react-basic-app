@@ -97,6 +97,14 @@ function Reactbtns() {
 
             <Link
                 to={{
+                    pathname: '/rhform',
+                }}
+            >
+                Go to react-hook form
+            </Link>
+
+            <Link
+                to={{
                     pathname: '/dashboard',
                 }}
             >
