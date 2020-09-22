@@ -11,7 +11,8 @@ const fetchData = () => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({getAllPersons}),
+        body: JSON.stringify({query: getAllPersons })
+        /* Apparently, if I passed getAllPersons in stringify, it was throwing err */
     })
         .then((res) => res.json())
         .then((res) => console.log(res));
