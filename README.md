@@ -9,5 +9,5 @@ Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sampl
 - To-Do List using [React-Redux](https://react-redux.js.org/)
 - Minifying images, css files using [Gulp](https://gulpjs.com/) Plugins
 - Internationalization using [react-i18-next](https://react.i18next.com/)
-
+- Query Data from [Contentful GraphQL API](https://www.contentful.com/developers/docs/tutorials/general/graphql/)
 

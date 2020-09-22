@@ -15,10 +15,13 @@ const fetchData = () => {
         /* Apparently, if I passed getAllPersons in stringify, it was throwing err */
     })
         .then((res) => res.json())
-        .then((res) => console.log(res));
+        .then(({ data, errors }) => {
+            console.log(data);
+        });
 };
 
 const PeopleProfile = () => {
+    const [data,setPeopleData] = React.useState([]);
     fetchData();
 
     return (
