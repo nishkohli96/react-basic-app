@@ -117,6 +117,13 @@ function Reactbtns() {
             >
                 Open a To-do List
             </Link>
+            <Link
+                to={{
+                    pathname: '/people',
+                }}
+            >
+                Check Graphql fetch
+            </Link>
         </div>
     );
 }

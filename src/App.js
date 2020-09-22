@@ -9,6 +9,7 @@ import StyledCompsPage from './pages/StyledCompsPage';
 import ThemeCompsPage from './pages/ThemeCompsPage';
 import FormPage from './pages/FormPage';
 import ReactHookForm from './pages/ReactHookForm';
+import PeopleProfile from './pages/PeopleProfile';
 
 import ReduxCounter from './components/ReduxCounter';
 import { AppThemeContext } from './context/AppThemeContext';
@@ -27,6 +28,7 @@ const App = () => {
                     <Route path="/styled" component={StyledCompsPage} />
                     <Route path="/theme" component={ThemeCompsPage} />
                     <Route path="/redux" component={ReduxCounter} />
+                    <Route path="/people" component={PeopleProfile} />
                     <Route path="/404" component={PageNotFound} />
                     <Redirect to="/404" />
                 </Switch>
