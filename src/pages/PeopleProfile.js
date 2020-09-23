@@ -1,28 +1,9 @@
 import React from 'react';
-import { getAllPersons, query } from '../graphql/queries';
-
-const { REACT_APP_SPACE_ID, REACT_APP_CONTENT_API } = process.env;
-
-const graphiqlURL = `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}?access_token=${REACT_APP_CONTENT_API}`;
-
-const fetchData = () => {
-    fetch(graphiqlURL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({query: getAllPersons })
-        /* Apparently, if I passed getAllPersons in stringify, it was throwing err */
-    })
-        .then((res) => res.json())
-        .then(({ data, errors }) => {
-            console.log(data);
-        });
-};
+import useQueryFetch from '../hooks/useQueryFetch';
+import { getAllPersons } from '../graphql/queries';
 
 const PeopleProfile = () => {
-    const [data,setPeopleData] = React.useState([]);
-    fetchData();
+    const { peopleData, errors } = useQueryFetch(getAllPersons);
 
     return (
         <div style={styles.container}>
