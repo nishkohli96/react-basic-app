@@ -1,4 +1,3 @@
-
 export const query = `
 query{
     person(id:"3eAIEmMPPkNCJF2Bv3kfvb"){
