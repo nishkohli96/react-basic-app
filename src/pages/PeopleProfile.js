@@ -3,9 +3,6 @@ import useQueryFetch from '../hooks/useQueryFetch';
 import { getAllPersons } from '../graphql/queries';
 import PersonProfile from '../components/PersonProfile';
 
-const imageURL =
-    'https://images-na.ssl-images-amazon.com/images/I/61z85f1XsgL._AC_SY500_.jpg';
-
 const Personobj = {
     name: '',
     dob: new Date(),
@@ -23,7 +20,16 @@ const PeopleProfile = () => {
     const getPeopleList = () => {
         if (!peopleData) {
             return <div> Fetching Data... </div>;
-        } else {
+        }
+        if (errors) {
+            return (
+                <div>
+                    <p>Some Error while Fetching Data...</p>
+                    <p>{errors[0]}</p>
+                </div>
+            );
+        }
+        if (peopleData) {
             const data = peopleData.personCollection.items;
             console.log(data);
             return (
@@ -49,8 +55,7 @@ const PeopleProfile = () => {
             <div style={styles.leftDiv}>
                 <h1 style={styles.header}> Add/Edit People </h1>
                 <p style={styles.header}>
-                    {' '}
-                    Click on a Person Name to view their data...
+                    Click on a Person Name to view their data.
                 </p>
                 <PersonProfile Person={person} />
             </div>
