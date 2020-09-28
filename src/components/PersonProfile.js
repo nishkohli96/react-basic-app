@@ -11,18 +11,13 @@ import {
 /* MUI Date & Time Pickers have some dependency issue with @date-io/date-fns v 2.x
    So, prefer using v1.3.13 -> yarn add @date-io/date-fns@1.3.13
 */
-const PersonProfile = (Person) => {
+const PersonProfile = ({ Person }) => {
     const [avatarURL, setAvatarURL] = useState(Person.imageURL);
     const [personName, setPersonName] = useState(Person.name);
     const [dob, setDoB] = useState(Person.dob);
-    const [phoneno, setPhoneno] = useState(Person.phoneno);
+    const [phoneno, setPhoneNo] = useState(Person.phoneno);
+    
     const classes = useStyles();
-
-    const [selectedDate, setSelectedDate] = React.useState(new Date());
-
-    const handleDateChange = (date) => {
-        setDoB(date);
-    };
 
     return (
         <div style={styles.container}>
@@ -39,9 +34,9 @@ const PersonProfile = (Person) => {
                     <div style={styles.formField}>
                         <TextField
                             id="outlined-multiline-flexible"
-                            label="Multiline"
+                            label="Name"
                             value={personName}
-                            //   onChange={handleChange}
+                            onChange={(event) => setPersonName(event.target.value)}
                             variant="outlined"
                             className={classes.textField}
                         />
@@ -50,12 +45,12 @@ const PersonProfile = (Person) => {
                     <div style={styles.formField}>
                         <TextField
                             id="standard-multiline-flexible"
-                            label="Multiline"
+                            label="Phone Number"
                             multiline
                             rowsMax={4}
                             value={phoneno}
                             className={classes.textField}
-                            //   onChange={handleChange}
+                            onChange={(event) => setPhoneNo(event.target.value)}
                         />
                     </div>
 
@@ -67,7 +62,7 @@ const PersonProfile = (Person) => {
                                 label="Date of Birth"
                                 format="dd/MM/yyyy"
                                 value={dob}
-                                onChange={handleDateChange}
+                                onChange={(date) => setDoB(date)}
                                 KeyboardButtonProps={{
                                     'aria-label': 'change date',
                                 }}

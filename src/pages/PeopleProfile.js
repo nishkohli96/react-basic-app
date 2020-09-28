@@ -9,8 +9,8 @@ const imageURL =
 const Personobj = {
     name: '',
     dob: new Date(), 
-    imageURL: imageURL, 
-    phoneno: '12345'
+    imageURL: '', 
+    phoneno: ''
 };
 
 const PeopleProfile = () => {
@@ -28,7 +28,8 @@ const PeopleProfile = () => {
                 <div style={styles.listDiv}>
                     <ul type="none">
                         {data.map((item) => (
-                            <li style={styles.li} key={item.sys.id} >
+                            <li style={styles.li} key={item.sys.id}
+                                onClick={() => setPersonData(item)}>
                                 {item.name}
                             </li>
                         ))}
