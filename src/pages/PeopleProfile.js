@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useQueryFetch from '../hooks/useQueryFetch';
 import { getAllPersons } from '../graphql/queries';
 import PersonProfile from '../components/PersonProfile';
 
+const imageURL =
+'https://images-na.ssl-images-amazon.com/images/I/61z85f1XsgL._AC_SY500_.jpg';
+
+const Personobj = {
+    name: '',
+    dob: new Date(), 
+    imageURL: imageURL, 
+    phoneno: '12345'
+};
+
 const PeopleProfile = () => {
+    const [person,setPersonData] = useState(Personobj);
     const { peopleData, errors } = useQueryFetch(getAllPersons);
+    console.log(peopleData)
 
     const getPeopleList = () => {
         if (!peopleData) {
-            return <div> Fetching Data </div>;
+            return <div> Fetching Data... </div>;
         } else {
             const data = peopleData.personCollection.items;
             console.log(data);
@@ -16,7 +28,7 @@ const PeopleProfile = () => {
                 <div style={styles.listDiv}>
                     <ul type="none">
                         {data.map((item) => (
-                            <li style={styles.li} key={item.sys.id}>
+                            <li style={styles.li} key={item.sys.id} >
                                 {item.name}
                             </li>
                         ))}
@@ -30,7 +42,7 @@ const PeopleProfile = () => {
         <div style={styles.container}>
             <div style={styles.leftDiv}>
                 <h1 style={styles.header}> Add/Edit People </h1>
-                <PersonProfile />
+                <PersonProfile Person = {person} />
             </div>
             <div style={styles.rightDiv}>
                 <h1 style={styles.header}> List of People </h1>

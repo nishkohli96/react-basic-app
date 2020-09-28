@@ -11,17 +11,17 @@ import {
 /* MUI Date & Time Pickers have some dependency issue with @date-io/date-fns v 2.x
    So, prefer using v1.3.13 -> yarn add @date-io/date-fns@1.3.13
 */
-const PersonProfile = () => {
-    const [avatarURL, setAvatarURL] = useState('');
-    const [personName, setPersonName] = useState('');
-    const [dob, setDoB] = useState('');
-    const [phoneno, setPhoneno] = useState('');
+const PersonProfile = (Person) => {
+    const [avatarURL, setAvatarURL] = useState(Person.imageURL);
+    const [personName, setPersonName] = useState(Person.name);
+    const [dob, setDoB] = useState(Person.dob);
+    const [phoneno, setPhoneno] = useState(Person.phoneno);
     const classes = useStyles();
-    const imageURL =
-        'https://images-na.ssl-images-amazon.com/images/I/61z85f1XsgL._AC_SY500_.jpg';
+
     const [selectedDate, setSelectedDate] = React.useState(new Date());
+
     const handleDateChange = (date) => {
-        setSelectedDate(date);
+        setDoB(date);
     };
 
     return (
@@ -30,7 +30,7 @@ const PersonProfile = () => {
                 <div style={styles.leftDiv}>
                     <Avatar
                         alt="Person Image"
-                        src={imageURL}
+                        src={avatarURL}
                         className={classes.large}
                         // variant="square"
                     />
@@ -64,13 +64,14 @@ const PersonProfile = () => {
                             <KeyboardDatePicker
                                 margin="normal"
                                 id="date-picker-dialog"
-                                label="Date picker dialog"
-                                format="MM/dd/yyyy"
-                                value={selectedDate}
+                                label="Date of Birth"
+                                format="dd/MM/yyyy"
+                                value={dob}
                                 onChange={handleDateChange}
                                 KeyboardButtonProps={{
                                     'aria-label': 'change date',
                                 }}
+                                className={classes.textField}
                             />
                         </MuiPickersUtilsProvider>
                     </div>
@@ -114,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(30),
     },
     textField: {
-        width: 450,
+        width: 400,
         height: 40,
     },
 }));
