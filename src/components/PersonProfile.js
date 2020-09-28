@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+    MuiPickersUtilsProvider,
+    KeyboardDatePicker,
+} from '@material-ui/pickers';
 
+/* MUI Date & Time Pickers have some dependency issue with @date-io/date-fns v 2.x
+   So, prefer using v1.3.13 -> yarn add @date-io/date-fns@1.3.13
+*/
 const PersonProfile = () => {
     const [avatarURL, setAvatarURL] = useState('');
     const [personName, setPersonName] = useState('');
@@ -11,6 +19,10 @@ const PersonProfile = () => {
     const classes = useStyles();
     const imageURL =
         'https://images-na.ssl-images-amazon.com/images/I/61z85f1XsgL._AC_SY500_.jpg';
+    const [selectedDate, setSelectedDate] = React.useState(new Date());
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
 
     return (
         <div style={styles.container}>
@@ -48,7 +60,19 @@ const PersonProfile = () => {
                     </div>
 
                     <div style={styles.formField}>
-   
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <KeyboardDatePicker
+                                margin="normal"
+                                id="date-picker-dialog"
+                                label="Date picker dialog"
+                                format="MM/dd/yyyy"
+                                value={selectedDate}
+                                onChange={handleDateChange}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change date',
+                                }}
+                            />
+                        </MuiPickersUtilsProvider>
                     </div>
                 </div>
             </div>

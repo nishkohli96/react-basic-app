@@ -15,3 +15,4 @@ src/assets
 package.json
 README.md
 yarn.lock
+yarn-error.log
