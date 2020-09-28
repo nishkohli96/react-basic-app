@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,12 +11,22 @@ import {
 /* MUI Date & Time Pickers have some dependency issue with @date-io/date-fns v 2.x
    So, prefer using v1.3.13 -> yarn add @date-io/date-fns@1.3.13
 */
+
 const PersonProfile = ({ Person }) => {
-    const [avatarURL, setAvatarURL] = useState(Person.imageURL);
+    /*  Since this a functional component, it needs to update everytime when Person
+        obj value changes */
+    useEffect(() => {
+        setAvatarURL(Person.imageUrl.url);
+        setPersonName(Person.name);
+        setDoB(Person.dob);
+        setPhoneNo(Person.phoneno);
+    }, [Person]);
+
+    const [avatarURL, setAvatarURL] = useState(Person.imageUrl.url);
     const [personName, setPersonName] = useState(Person.name);
     const [dob, setDoB] = useState(Person.dob);
     const [phoneno, setPhoneNo] = useState(Person.phoneno);
-    
+
     const classes = useStyles();
 
     return (
@@ -36,7 +46,9 @@ const PersonProfile = ({ Person }) => {
                             id="outlined-multiline-flexible"
                             label="Name"
                             value={personName}
-                            onChange={(event) => setPersonName(event.target.value)}
+                            onChange={(event) =>
+                                setPersonName(event.target.value)
+                            }
                             variant="outlined"
                             className={classes.textField}
                         />

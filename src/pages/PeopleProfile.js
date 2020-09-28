@@ -4,19 +4,21 @@ import { getAllPersons } from '../graphql/queries';
 import PersonProfile from '../components/PersonProfile';
 
 const imageURL =
-'https://images-na.ssl-images-amazon.com/images/I/61z85f1XsgL._AC_SY500_.jpg';
+    'https://images-na.ssl-images-amazon.com/images/I/61z85f1XsgL._AC_SY500_.jpg';
 
 const Personobj = {
     name: '',
-    dob: new Date(), 
-    imageURL: '', 
-    phoneno: ''
+    dob: new Date(),
+    imageUrl: {
+        url: '',
+    },
+    phoneno: '',
 };
 
 const PeopleProfile = () => {
-    const [person,setPersonData] = useState(Personobj);
+    const [person, setPersonData] = useState(Personobj);
     const { peopleData, errors } = useQueryFetch(getAllPersons);
-    console.log(peopleData)
+    console.log(peopleData);
 
     const getPeopleList = () => {
         if (!peopleData) {
@@ -28,8 +30,11 @@ const PeopleProfile = () => {
                 <div style={styles.listDiv}>
                     <ul type="none">
                         {data.map((item) => (
-                            <li style={styles.li} key={item.sys.id}
-                                onClick={() => setPersonData(item)}>
+                            <li
+                                style={styles.li}
+                                key={item.sys.id}
+                                onClick={() => setPersonData(item)}
+                            >
                                 {item.name}
                             </li>
                         ))}
@@ -43,7 +48,11 @@ const PeopleProfile = () => {
         <div style={styles.container}>
             <div style={styles.leftDiv}>
                 <h1 style={styles.header}> Add/Edit People </h1>
-                <PersonProfile Person = {person} />
+                <p style={styles.header}>
+                    {' '}
+                    Click on a Person Name to view their data...
+                </p>
+                <PersonProfile Person={person} />
             </div>
             <div style={styles.rightDiv}>
                 <h1 style={styles.header}> List of People </h1>

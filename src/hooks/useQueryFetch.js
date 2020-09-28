@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const { REACT_APP_SPACE_ID, REACT_APP_CONTENT_API } = process.env;
 const graphiqlURL = `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`;
 
-/* FYI : always prefix your custome hook name with the 'use' keyword; else React would 
+/* FYI : always prefix your custom Hook name with the 'use' keyword; else React would 
    not be able to differentiate between a custom Hook and a normal function */
 const useQueryFetch = (querystr) => {
     const [peopleData, setPeopleData] = useState(null);
