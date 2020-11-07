@@ -115,7 +115,7 @@ function Reactbtns() {
                     pathname: '/redux',
                 }}
             >
-                Open a To-do List
+                Redux & MobX
             </Link>
             <Link
                 to={{

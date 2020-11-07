@@ -16,6 +16,8 @@ code {
     background-color: aquamarine;
     padding: 20px;
     width: 500px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     justify-content: center;
 }
 
