@@ -4,13 +4,20 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import { I18nextProvider } from 'react-i18next';
 import geti18config from './i18-next/i18config';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/redux-persist';
 
 const ReactApp = () => {
     return (
         <React.StrictMode>
-            <I18nextProvider i18n={geti18config()}>
-                <App />
-            </I18nextProvider>
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <I18nextProvider i18n={geti18config()}>
+                        <App />
+                    </I18nextProvider>
+                </PersistGate>
+            </Provider>
         </React.StrictMode>
     );
 };

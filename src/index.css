@@ -30,11 +30,13 @@ code {
     text-decoration: underline;
     font-weight: bold;
     color: #006699;
+    cursor: pointer;
 }
 
 .listitem {
     display: flex;
     width: 200px;
+    cursor: pointer;
 }
 
 .itemText {

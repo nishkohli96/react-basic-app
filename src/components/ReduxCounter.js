@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
-import ReduxStore from '../redux/redux-store';
+// import ReduxStore from '../redux/redux-store';
+import { store } from '../redux/redux-persist';
 import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
 import '../index.css';
 
+/*  If we use normal ReduxStore, then we loose the changes of counter & to-do list,
+    whenever the component is re-rendered, using redux-persist solves this issue.  */
 const ReduxCounter = () => {
     let inputVal;
 
-    const [count, setValue] = useState(ReduxStore.getState().returnCounter);
-    const [todoItems, setItemList] = useState(ReduxStore.getState().todoList);
+    const [count, setValue] = useState(store.getState().returnCounter);
+    const [todoItems, setItemList] = useState(store.getState().todoList);
     const [filter, setFilter] = useState('SHOW_ALL');
     const [itemID, setitemID] = useState(0);
 
     /* To make sure that we get latest values of counter & todoList */
-    ReduxStore.subscribe(() => setValue(ReduxStore.getState().returnCounter));
-    ReduxStore.subscribe(() => setItemList(ReduxStore.getState().todoList));
+    store.subscribe(() => setValue(store.getState().returnCounter));
+    store.subscribe(() => setItemList(store.getState().todoList));
 
     const ToDoItem = ({ item }) => {
         return (
@@ -22,7 +25,7 @@ const ReduxCounter = () => {
                 <div
                     className="itemText"
                     onClick={() =>
-                        ReduxStore.dispatch({
+                        store.dispatch({
                             type: 'TOGGLE_ITEM',
                             id: item.id,
                         })
@@ -33,7 +36,7 @@ const ReduxCounter = () => {
                 <div className="itemRemove">
                     <CloseIcon
                         onClick={() =>
-                            ReduxStore.dispatch({
+                            store.dispatch({
                                 type: 'DELETE_ITEM',
                                 id: item.id,
                             })
@@ -110,14 +113,14 @@ const ReduxCounter = () => {
             <Button
                 style={{ backgroundColor: '#21b6ae', color: 'yellow' }}
                 variant="contained"
-                onClick={() => ReduxStore.dispatch({ type: 'INCREMENT' })}
+                onClick={() => store.dispatch({ type: 'INCREMENT' })}
             >
                 Inc counter
             </Button>
             <Button
                 style={{ backgroundColor: '#21b6ae', color: 'yellow' }}
                 variant="contained"
-                onClick={() => ReduxStore.dispatch({ type: 'DECREMENT' })}
+                onClick={() => store.dispatch({ type: 'DECREMENT' })}
             >
                 Dec counter
             </Button>
@@ -131,7 +134,7 @@ const ReduxCounter = () => {
                 ></input>
                 <Button
                     onClick={() => {
-                        ReduxStore.dispatch({
+                        store.dispatch({
                             type: 'ADD_ITEM',
                             text: inputVal.value,
                             id: itemID,
