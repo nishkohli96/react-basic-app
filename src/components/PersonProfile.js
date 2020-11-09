@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import TextField from '@material-ui/core/TextField';
+import { TextField, InputAdornment, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DateFnsUtils from '@date-io/date-fns';
 import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 /* MUI Date & Time Pickers have some dependency issue with @date-io/date-fns v 2.x
    So, prefer using v1.3.13 -> yarn add @date-io/date-fns@1.3.13
@@ -27,6 +29,10 @@ const PersonProfile = ({ Person }) => {
     const [dob, setDoB] = useState(Person.dob);
     const [phoneno, setPhoneNo] = useState(Person.phoneno);
 
+    const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const handleMouseDownPassword = () => setShowPassword(!showPassword);
+
     const classes = useStyles();
 
     return (
@@ -37,13 +43,12 @@ const PersonProfile = ({ Person }) => {
                         alt="Person Image"
                         src={avatarURL}
                         className={classes.large}
-                        // variant="square"
+                        // variant='square'
                     />
                 </div>
                 <div style={styles.rightDiv}>
                     <div style={styles.formField}>
                         <TextField
-                            id="outlined-multiline-flexible"
                             label="Name"
                             value={personName}
                             onChange={(event) =>
@@ -79,8 +84,37 @@ const PersonProfile = ({ Person }) => {
                                     'aria-label': 'change date',
                                 }}
                                 className={classes.textField}
+                                readOnly
                             />
                         </MuiPickersUtilsProvider>
+                    </div>
+
+                    <div style={styles.formField}>
+                        <TextField
+                            label="Enter Password"
+                            className={classes.textField}
+                            type={showPassword ? 'text' : 'password'}
+                            InputProps={{
+                                // <-- This is where the toggle button is added.
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={
+                                                handleMouseDownPassword
+                                            }
+                                        >
+                                            {showPassword ? (
+                                                <VisibilityIcon />
+                                            ) : (
+                                                <VisibilityOffIcon />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
                     </div>
                 </div>
             </div>

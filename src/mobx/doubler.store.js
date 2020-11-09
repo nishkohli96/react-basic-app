@@ -1,10 +1,17 @@
 import { makeObservable, observable, computed, action } from 'mobx';
+import store from 'store'; // store.js exposes a simple API for cross-browser local storage
 
 class Doubler {
     /* Prefer initializing the counterValue */
     counterValue = 0;
 
     constructor() {
+        const existingStore = store.get('counter');
+
+        if (existingStore) {
+            this.counterValue = existingStore;
+        }
+
         /*  Just write makeAutoObservable(this) if importing makeAutoObservable from mobx.
             It will itself infer the types */
         makeObservable(this, {
@@ -21,10 +28,12 @@ class Doubler {
 
     doubleNum() {
         this.counterValue *= 2;
+        store.set('counter', this.counterValue);
     }
 
     increment() {
         this.counterValue++;
+        store.set('counter', this.counterValue);
     }
 
     /* Can use a fn like this if your observable changes by an API call */
