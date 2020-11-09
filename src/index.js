@@ -7,15 +7,19 @@ import geti18config from './i18-next/i18config';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/redux-persist';
+import { AbilityContext } from './casl/Can';
+import ability from './casl/Ability';
 
 const ReactApp = () => {
     return (
         <React.StrictMode>
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                    <I18nextProvider i18n={geti18config()}>
-                        <App />
-                    </I18nextProvider>
+                    <AbilityContext.Provider value={ability}>
+                        <I18nextProvider i18n={geti18config()}>
+                            <App />
+                        </I18nextProvider>
+                    </AbilityContext.Provider>
                 </PersistGate>
             </Provider>
         </React.StrictMode>

@@ -115,7 +115,7 @@ function Reactbtns() {
                     pathname: '/redux',
                 }}
             >
-                Redux & MobX
+                Redux &amp; MobX
             </Link>
             <Link
                 to={{
@@ -123,6 +123,13 @@ function Reactbtns() {
                 }}
             >
                 Check Graphql fetch
+            </Link>
+            <Link
+                to={{
+                    pathname: '/casl',
+                }}
+            >
+                Casl Example
             </Link>
         </div>
     );
@@ -168,7 +175,7 @@ function sendData() {
                 console.log(result);
             },
             (error) => {
-                //console.log(error);
+                console.log(error);
             }
         );
 }

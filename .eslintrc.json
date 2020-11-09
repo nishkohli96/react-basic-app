@@ -3,7 +3,7 @@
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -20,6 +20,8 @@
     ],
     "rules": {
         "require-jsdoc" : 0,
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
         "indent": [
             "error",
             "tab"
