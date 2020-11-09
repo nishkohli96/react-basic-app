@@ -13,7 +13,7 @@ const ReactHookForm = () => {
     const onSubmit = (data) => console.log(data);
     const classes = useStyles();
     // console.log(watch('personName')); // watch input value by passing the name of it
-    
+
     return (
         <div style={styles.container}>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -24,10 +24,19 @@ const ReactHookForm = () => {
                         name="personName"
                         variant="outlined"
                         className={classes.textField}
-                        inputRef={register({ required: true, pattern: /^[A-Z a-z]+$/i })}
-                        error={errors.personName}
-                        helperText={errors.personName? 'Regex err' :'' }
-                    /> 
+                        inputRef={register({
+                            required: {
+                                value: true,
+                                message: 'Please fill this field',
+                            },
+                            pattern: {
+                                value: /^[A-Z a-z]+$/i,
+                                message: 'Not a valid pattern',
+                            },
+                        })}
+                        error={errors?.personName ? true : false}
+                        helperText={errors?.personName?.message}
+                    />
                 </div>
 
                 <div style={styles.formField}>
@@ -36,7 +45,14 @@ const ReactHookForm = () => {
                         name="email"
                         variant="outlined"
                         className={classes.textField}
-                        inputRef={register({ required: true  })}
+                        inputRef={register({
+                            required: {
+                                value: true,
+                                message: 'Please fill this field',
+                            },
+                        })}
+                        error={errors?.email ? true : false}
+                        helperText={errors?.email?.message}
                     />
                 </div>
 
@@ -46,7 +62,26 @@ const ReactHookForm = () => {
                         name="phoneno"
                         variant="outlined"
                         className={classes.textField}
-                        inputRef={register({ required: true, minLength: 9, maxLength: 15 })}
+                        inputRef={register({
+                            required: {
+                                value: true,
+                                message: 'Please fill this field',
+                            },
+                            pattern: {
+                                value: /^[0-9]+$/i,
+                                message: 'Not a valid pattern',
+                            },
+                            minLength: {
+                                value: 9,
+                                message: 'Min 9 chars',
+                            },
+                            maxLength: {
+                                value: 15,
+                                message: 'Max 15 chars',
+                            },
+                        })}
+                        error={errors?.phoneno ? true : false}
+                        helperText={errors?.phoneno?.message}
                     />
                 </div>
 
@@ -54,7 +89,7 @@ const ReactHookForm = () => {
                     <Button
                         variant="outlined"
                         style={{ color: '#21b6ae' }}
-                        type='submit'
+                        type="submit"
                     >
                         Submit
                     </Button>
@@ -62,7 +97,7 @@ const ReactHookForm = () => {
                     <Button
                         variant="outlined"
                         style={{ color: '#21b6ae' }}
-                        type='reset'
+                        type="reset"
                     >
                         Clear Form
                     </Button>
@@ -78,10 +113,10 @@ const styles = {
         flexDirection: 'column',
         padding: '20px',
         paddingTop: '50px',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     formField: {
-        marginBottom: '40px',
+        marginBottom: '50px',
     },
 };
 
