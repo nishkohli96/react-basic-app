@@ -91,7 +91,7 @@ function Reactbtns() {
                     data: { name: 'nish', msg: 'Hi people' },
                 }}
             >
-                Click Me
+                Send data to route
             </Link>
 
             <Link
