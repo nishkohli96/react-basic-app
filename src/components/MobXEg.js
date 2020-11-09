@@ -8,7 +8,7 @@ import { DIV } from '../styled-components/ThemedComponents';
 /* Directly import and call Doubler store like this */
 // const DBLR = new Doubler();
 
-const MobXEg = observer(() => {
+const MobXEg = () => {
     /* How to call a computed mobX fn, calling this fn as such didnt update the state */
     // console.log(' rteur  dbl value ',DBLR.double);
 
@@ -36,6 +36,6 @@ const MobXEg = observer(() => {
             </Button>
         </DIV>
     );
-});
+};
 
-export default MobXEg;
+export default observer(MobXEg);

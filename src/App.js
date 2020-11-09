@@ -11,6 +11,7 @@ import PeopleProfile from './pages/PeopleProfile';
 import ThemeCompsPage from './pages/ThemeCompsPage';
 import StyledCompsPage from './pages/StyledCompsPage';
 
+import Carousel from './components/Carousel';
 import PageNotFound from './components/PageNotFound';
 import ReduxCounter from './components/ReduxCounter';
 import { AppThemeContext } from './context/AppThemeContext';
@@ -30,6 +31,7 @@ const App = () => {
                     <Route path="/styled" component={StyledCompsPage} />
                     <Route path="/theme" component={ThemeCompsPage} />
                     <Route path="/redux" component={ReduxCounter} />
+                    <Route path="/carousel" component={Carousel} />
                     <Route path="/people" component={PeopleProfile} />
                     <Route path="/404" component={PageNotFound} />
                     <Redirect to="/404" />

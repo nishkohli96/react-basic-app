@@ -51,7 +51,6 @@ function Reactbtns() {
         <div className={classes.root}>
             <Button
                 style={{ backgroundColor: '#21b6ae', color: 'yellow' }}
-                variant="contained"
                 className={classes.button}
                 endIcon={<CloudUploadIcon />}
                 onClick={fetchData}
@@ -74,7 +73,7 @@ function Reactbtns() {
                 disableRipple
                 onClick={activateLasers}
             >
-                Activate Lazers
+                View UI
             </BootstrapButton>
 
             <BootstrapButton
@@ -131,6 +130,8 @@ function Reactbtns() {
             >
                 Casl Example
             </Link>
+
+            <Link to="/carousel">Carousel</Link>
         </div>
     );
 }
