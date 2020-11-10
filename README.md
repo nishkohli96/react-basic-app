@@ -1,5 +1,9 @@
 # React-Basic-App
 
+## Preview the site by clicking the following URL
+
+[learnreactbynish.netlify.app/](https://learnreactbynish.netlify.app/)
+
 Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sample app and performing major operations such as -
 
 - Fetching data from a [NodeJS](https://nodejs.org/en/) Server
@@ -11,4 +15,5 @@ Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sampl
 - Internationalization using [react-i18-next](https://react.i18next.com/)
 - Query Data from [Contentful GraphQL API](https://www.contentful.com/developers/docs/tutorials/general/graphql/)
 - Use [MobX](https://mobx.js.org/README.html) as an easier alternative to Redux for global state management
+- I removed the 'Public_url' prefix in public/index.html file so that my build loads.
 

@@ -44,8 +44,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -68,7 +66,6 @@
     "babel-plugin-styled-components": "^1.11.1",
     "eslint": "6.6.0",
     "eslint-plugin-react": "^7.20.6",
-    "gh-pages": "^3.1.0",
     "gulp": "^4.0.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.13",
