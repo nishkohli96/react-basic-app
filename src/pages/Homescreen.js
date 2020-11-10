@@ -15,6 +15,14 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
         },
     },
+    gradientBtn: {
+        color: 'salmon',
+        background:
+            'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(31,94,166,1) 33%, rgba(48,126,142,1) 100%)',
+    },
+    gradientBtn2: {
+        color: 'salmon',
+    },
 }));
 
 const BootstrapButton = withStyles({
@@ -56,16 +64,16 @@ function Reactbtns() {
                 <a href={netlifyurl} target="_blank" rel="noopener noreferrer">
                     Netlify.
                 </a>
-                Prefer creating static websites using{' '}
+                &nbsp; Prefer creating static websites using{' '}
                 <a href={gatsbyurl} target="_blank" rel="noopener noreferrer">
                     GatsbyJS.
                 </a>
             </p>
             <Button
-                style={{ backgroundColor: '#21b6ae', color: 'yellow' }}
-                className={classes.button}
+                className={classes.gradientBtn2}
                 endIcon={<CloudUploadIcon />}
                 onClick={fetchData}
+                variant="outlined"
             >
                 Fetch data
             </Button>
@@ -80,18 +88,15 @@ function Reactbtns() {
                 Login
             </Button>
             <BootstrapButton
-                variant="contained"
                 color="primary"
-                disableRipple
+                className={classes.gradientBtn}
                 onClick={activateLasers}
             >
                 View UI
             </BootstrapButton>
 
             <BootstrapButton
-                variant="outlined"
                 color="primary"
-                disableRipple
                 onClick={() => history.push('/styled')}
             >
                 GoTo Styled Components

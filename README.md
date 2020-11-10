@@ -17,3 +17,5 @@ Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sampl
 - Use [MobX](https://mobx.js.org/README.html) as an easier alternative to Redux for global state management
 - Remember to add .env variables from your file to the Netlify env-vars under Build & deploy
   of your app settings. Netlify takes care of the CI/CD part.   
+- Check out [trianglify.io](https://trianglify.io/) and 
+  [cssgradient.io](https://cssgradient.io/) for background image ideas and gradient ideas. 
