@@ -16,4 +16,5 @@ Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sampl
 - Query Data from [Contentful GraphQL API](https://www.contentful.com/developers/docs/tutorials/general/graphql/)
 - Use [MobX](https://mobx.js.org/README.html) as an easier alternative to Redux for global state management
 - I removed the 'Public_url' prefix in public/index.html file so that my build loads.
-
+- Remember to add .env variables from your file to the Netlify env-vars under Build & deploy
+  of ypur app settings.  

@@ -46,9 +46,17 @@ const BootstrapButton = withStyles({
 function Reactbtns() {
     const classes = useStyles();
     const history = useHistory();
+    const url = 'https://www.netlify.com/';
 
     return (
         <div className={classes.root}>
+            <p>
+                {' '}
+                This website is hosted on{' '}
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                    Netlify
+                </a>
+            </p>
             <Button
                 style={{ backgroundColor: '#21b6ae', color: 'yellow' }}
                 className={classes.button}
