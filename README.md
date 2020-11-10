@@ -1,6 +1,6 @@
 # React-Basic-App
 
-## Preview the site by clicking the following URL
+**Preview the site by clicking the following URL**
 
 [learnreactbynish.netlify.app/](https://learnreactbynish.netlify.app/)
 
