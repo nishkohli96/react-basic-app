@@ -46,14 +46,19 @@ const BootstrapButton = withStyles({
 function Reactbtns() {
     const classes = useStyles();
     const history = useHistory();
-    const url = 'https://www.netlify.com/';
+    const netlifyurl = 'https://www.netlify.com/';
+    const gatsbyurl = 'https://www.gatsbyjs.com/';
 
     return (
         <div className={classes.root}>
             <p>
                 This website is hosted on{' '}
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                    Netlify
+                <a href={netlifyurl} target="_blank" rel="noopener noreferrer">
+                    Netlify.
+                </a>
+                Prefer creating static websites using{' '}
+                <a href={gatsbyurl} target="_blank" rel="noopener noreferrer">
+                    GatsbyJS.
                 </a>
             </p>
             <Button
