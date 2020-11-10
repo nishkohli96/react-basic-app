@@ -51,7 +51,6 @@ function Reactbtns() {
     return (
         <div className={classes.root}>
             <p>
-                {' '}
                 This website is hosted on{' '}
                 <a href={url} target="_blank" rel="noopener noreferrer">
                     Netlify
