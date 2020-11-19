@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
+import momentPlugin from '@fullcalendar/moment';
+import interactionPlugin from '@fullcalendar/interaction';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-const CalendarComp = () => {
+const CalendarComp = ({ events }) => {
+    useEffect(() => {}, [events]);
     return (
         <FullCalendar
-            plugins={[dayGridPlugin, timeGridPlugin, bootstrapPlugin]}
+            plugins={[
+                dayGridPlugin,
+                timeGridPlugin,
+                bootstrapPlugin,
+                momentPlugin,
+                interactionPlugin,
+            ]}
             initialView="dayGridMonth"
             locale="en-GB"
-            events="https://fullcalendar.io/demo-events.json"
+            events={events} //"https://fullcalendar.io/demo-events.json"
             themeSystem="bootstrap"
             stickyHeaderDates={true}
             headerToolbar={{

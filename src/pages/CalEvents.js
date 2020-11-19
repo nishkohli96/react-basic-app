@@ -1,27 +1,106 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
+import { nanoid } from 'nanoid';
+import { observer } from 'mobx-react';
 import DateFnsUtils from '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
+import Alert from '@material-ui/lab/Alert';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, DateTimePicker } from '@material-ui/pickers';
 
+import rootStore from '../mobx';
 import CalendarComp from '../components/CalendarComp';
 
-const CalEvents = () => {
-    const [startDate, setStartDate] = React.useState(moment());
-    const [endDate, setEndDate] = React.useState(moment().add(30, 'm'));
-    const [title, setTitle] = React.useState('');
-    const [desc, setDesc] = React.useState('');
+const eventColors = [
+    '#006699',
+    'silver',
+    'pink',
+    'lightblue',
+    'beige',
+    'lightgreen',
+    'violet',
+];
 
-    const handleDateChange = (date) => {
-        console.log('new date ', date);
-        setStartDate(date);
+const CalEvents = () => {
+    const classes = useStyles();
+    const [startDate, setStartDate] = useState(moment().add(15, 'm'));
+    // 15 mins from current time
+    const [endDate, setEndDate] = useState(moment().add(45, 'm'));
+    const [title, setTitle] = useState('');
+    const [desc, setDesc] = useState('');
+    const [alertMsg, setAlertMsg] = useState('');
+    const [dialogOpen, setOpen] = useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
     };
 
+    const handleStartDate = (date) => {
+        /*  Handle err if start date has already passed current time. Also setting end
+            date to atleast 30 mins after setting new start date */
+
+        /*  Keeping atleast 15 mins diff between start and end date; diff value would be
+            less than one if start and end time diff less than 15 mins */
+        const diff = (moment(date) - moment()) / (15 * 60 * 1000);
+
+        if (diff <= 1) {
+            setAlertMsg('Please select start time atleast 15 mins from now');
+            setOpen(true);
+            setStartDate(moment().add(15, 'm'));
+            setEndDate(moment().add(45, 'm'));
+        } else {
+            setStartDate(date);
+            setEndDate(moment(date).add(30, 'm'));
+        }
+    };
+
+    const handleEndDate = (date) => {
+        /* Handle condition to make sure that endDate > startDate */
+        const diff = (moment(date) - startDate) / (15 * 60 * 1000);
+
+        if (diff <= 1) {
+            setAlertMsg('End Date should be greater than start date');
+            setOpen(true);
+            setEndDate(moment(startDate).add(30, 'm'));
+        } else {
+            setEndDate(date);
+        }
+    };
+
+    /*  Random no fn.
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    Taking Lower limit as 0 and upper limit as length of eventColors array
+*/
     const addEvent = () => {
-        console.log('btn clicked');
+        const event = {
+            id: nanoid(10),
+            title,
+            start: startDate,
+            end: endDate,
+            backgroundColor:
+                eventColors[
+                    Math.floor(Math.random() * (eventColors.length + 1))
+                ],
+            extendedProps: {
+                desc,
+            },
+        };
+
+        rootStore.eventStore.addEvent(event);
+
+        /* Reset the form fields */
+        setTitle('');
+        setDesc('');
+        setStartDate(moment().add(15, 'm'));
+        setEndDate(moment().add(15, 'm'));
     };
 
     return (
@@ -29,7 +108,7 @@ const CalEvents = () => {
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <Grid container spacing={1}>
                     <Grid item xs={12}>
-                        <Paper style={styles.paper}>
+                        <Paper className={classes.paper}>
                             <div style={styles.heading}>
                                 Select Date &amp; Time to add event to
                                 fullcalendar
@@ -71,7 +150,7 @@ const CalEvents = () => {
                                 variant="inline"
                                 format="dd MMM yyyy hh:mm aa"
                                 value={startDate}
-                                onChange={handleDateChange}
+                                onChange={(date) => handleStartDate(date)}
                             />
                         </div>
                     </Grid>
@@ -84,7 +163,7 @@ const CalEvents = () => {
                                 variant="inline"
                                 format="dd MMM yyyy hh:mm aa"
                                 value={endDate}
-                                onChange={(date) => setEndDate(date)}
+                                onChange={(date) => handleEndDate(date)}
                             />
                         </div>
                     </Grid>
@@ -92,11 +171,12 @@ const CalEvents = () => {
                     <Grid item xs={12}>
                         <div style={styles.centerDiv}>
                             <Button
-                                onClick={addEvent}
+                                type="submit"
                                 style={{
                                     backgroundColor: 'palevioletred',
                                     color: 'white',
                                 }}
+                                onClick={() => addEvent()}
                                 variant="outlined"
                             >
                                 Add Event
@@ -106,14 +186,33 @@ const CalEvents = () => {
 
                     <Grid item xs={12}>
                         <div style={styles.calDiv}>
-                            <CalendarComp />
+                            <CalendarComp
+                                events={rootStore.eventStore.events}
+                            />
                         </div>
                     </Grid>
                 </Grid>
+
+                <Snackbar
+                    open={dialogOpen}
+                    autoHideDuration={5000}
+                    onClose={handleClose}
+                >
+                    <Alert onClose={() => handleClose()} severity="warning">
+                        {alertMsg}
+                    </Alert>
+                </Snackbar>
             </MuiPickersUtilsProvider>
         </div>
     );
 };
+
+const useStyles = makeStyles(() => ({
+    paper: {
+        padding: 5,
+        marginBottom: 10,
+    },
+}));
 
 const styles = {
     container: {
@@ -121,10 +220,6 @@ const styles = {
         flex: 1,
         backgroundColor: 'skyblue',
         padding: 20,
-    },
-    paper: {
-        padding: 5,
-        marginBottom: 10,
     },
     centerDiv: {
         display: 'flex',
@@ -143,4 +238,4 @@ const styles = {
     },
 };
 
-export default CalEvents;
+export default observer(CalEvents);

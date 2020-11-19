@@ -19,3 +19,4 @@ Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sampl
   of your app settings. Netlify takes care of the CI/CD part.   
 - Check out [trianglify.io](https://trianglify.io/) and 
   [cssgradient.io](https://cssgradient.io/) for background image ideas and gradient ideas. 
+- Implement [FullCalendar.io](https://fullcalendar.io/) with [MomentJS](https://momentjs.com/)
