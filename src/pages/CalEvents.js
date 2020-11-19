@@ -1,8 +1,10 @@
 import React from 'react';
 import moment from 'moment';
+import DateFnsUtils from '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import DateFnsUtils from '@date-io/date-fns';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import { MuiPickersUtilsProvider, DateTimePicker } from '@material-ui/pickers';
 
 import CalendarComp from '../components/CalendarComp';
@@ -10,10 +12,16 @@ import CalendarComp from '../components/CalendarComp';
 const CalEvents = () => {
     const [startDate, setStartDate] = React.useState(moment());
     const [endDate, setEndDate] = React.useState(moment().add(30, 'm'));
+    const [title, setTitle] = React.useState('');
+    const [desc, setDesc] = React.useState('');
 
     const handleDateChange = (date) => {
         console.log('new date ', date);
         setStartDate(date);
+    };
+
+    const addEvent = () => {
+        console.log('btn clicked');
     };
 
     return (
@@ -27,6 +35,32 @@ const CalEvents = () => {
                                 fullcalendar
                             </div>
                         </Paper>
+                    </Grid>
+
+                    <Grid item xs={12} sm={6}>
+                        <div style={styles.centerDiv}>
+                            <TextField
+                                label="Event title"
+                                value={title}
+                                onChange={(event) =>
+                                    setTitle(event.target.value)
+                                }
+                            />
+                        </div>
+                    </Grid>
+
+                    <Grid item xs={12} sm={6}>
+                        <div style={styles.centerDiv}>
+                            <TextField
+                                label="Event Description"
+                                value={desc}
+                                onChange={(event) =>
+                                    setDesc(event.target.value)
+                                }
+                                multiline
+                                rowsMax={4}
+                            />
+                        </div>
                     </Grid>
 
                     <Grid item xs={12} sm={6}>
@@ -56,6 +90,21 @@ const CalEvents = () => {
                     </Grid>
 
                     <Grid item xs={12}>
+                        <div style={styles.centerDiv}>
+                            <Button
+                                onClick={addEvent}
+                                style={{
+                                    backgroundColor: 'palevioletred',
+                                    color: 'white',
+                                }}
+                                variant="outlined"
+                            >
+                                Add Event
+                            </Button>
+                        </div>
+                    </Grid>
+
+                    <Grid item xs={12}>
                         <div style={styles.calDiv}>
                             <CalendarComp />
                         </div>
@@ -75,6 +124,7 @@ const styles = {
     },
     paper: {
         padding: 5,
+        marginBottom: 10,
     },
     centerDiv: {
         display: 'flex',

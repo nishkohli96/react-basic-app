@@ -3,21 +3,23 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
+
 import 'bootstrap/dist/css/bootstrap.css';
-import '@fortawesome/fontawesome-free/css/all.css'; // needs additional webpack config
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const CalendarComp = () => {
     return (
         <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, bootstrapPlugin]}
             initialView="dayGridMonth"
-            events={[{ title: 'event 1', date: new Date() }]}
+            locale="en-GB"
+            events="https://fullcalendar.io/demo-events.json"
             themeSystem="bootstrap"
             stickyHeaderDates={true}
             headerToolbar={{
-                start: 'title',
-                center: '',
-                end: 'prevYear,prev,today,next,nextYear',
+                start: 'prevYear,prev,today,next,nextYear',
+                center: 'title',
+                end: 'timeGridDay,timeGridWeek,dayGridMonth',
             }}
             buttonText={{
                 today: 'Today',
@@ -26,6 +28,38 @@ const CalendarComp = () => {
                 month: 'Month',
                 list: 'List',
             }}
+            firstDay={1}
+            slotEventOverlap={false}
+            scrollTime="12:00:00"
+            eventTimeFormat={{
+                // like '14:30:00'
+                hour: '2-digit',
+                minute: '2-digit',
+                meridiem: false,
+                hour12: false,
+            }}
+            displayEventEnd={true}
+            nowIndicator={true}
+            views={{
+                timeGrid: {
+                    dayHeaderFormat: {
+                        weekday: 'short',
+                        day: 'numeric',
+                        omitCommas: true,
+                    },
+                    slotLabelFormat: {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        meridiem: 'short',
+                        hour12: false,
+                    },
+                },
+                dayGrid: {
+                    dayMaxEvents: 4,
+                    moreLinkClick: 'popover',
+                },
+            }}
+            allDaySlot={false}
         />
     );
 };
