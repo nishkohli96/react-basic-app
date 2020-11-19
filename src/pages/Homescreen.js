@@ -149,6 +149,7 @@ function Reactbtns() {
             </Link>
 
             <Link to="/carousel">Carousel</Link>
+            <Link to="/calendar">Full Calendar</Link>
         </div>
     );
 }
