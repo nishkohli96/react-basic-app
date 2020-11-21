@@ -14,7 +14,7 @@ import { MuiPickersUtilsProvider, DateTimePicker } from '@material-ui/pickers';
 import CalendarComp from '../components/CalendarComp';
 
 const eventColors = [
-    '#006699',
+    'orange',
     'silver',
     'pink',
     'lightblue',
@@ -82,8 +82,8 @@ const CalEvents = () => {
         const event = {
             id: nanoid(10),
             title,
-            start: startDate,
-            end: endDate,
+            start: moment(startDate).toDate(),
+            end: moment(endDate).toDate(),
             backgroundColor:
                 eventColors[
                     Math.floor(Math.random() * (eventColors.length + 1))
@@ -92,12 +92,14 @@ const CalEvents = () => {
                 desc,
             },
         };
+        // console.log(event)
+        setNewEvent(event);
 
         /* Reset the form fields */
         setTitle('');
         setDesc('');
         setStartDate(moment().add(15, 'm'));
-        setEndDate(moment().add(15, 'm'));
+        setEndDate(moment().add(45, 'm'));
     };
 
     return (
@@ -160,7 +162,7 @@ const CalEvents = () => {
                                 margin="normal"
                                 label="End Date &amp; Time"
                                 variant="inline"
-                                format="dd MMM yyyy HH:mm"  
+                                format="dd MMM yyyy HH:mm"
                                 value={endDate}
                                 onChange={(date) => handleEndDate(date)}
                             />
@@ -185,9 +187,7 @@ const CalEvents = () => {
 
                     <Grid item xs={12}>
                         <div style={styles.calDiv}>
-                            <CalendarComp
-                                newEvent={newEvent}
-                            />
+                            <CalendarComp newEvent={newEvent} />
                         </div>
                     </Grid>
                 </Grid>

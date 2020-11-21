@@ -11,11 +11,12 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import interactionPlugin from '@fullcalendar/interaction';
 
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css'; // optional for styling
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const CalendarComp = ({ newEvent }) => {
-
     const calRef = React.createRef();
 
     useEffect(() => {
@@ -23,7 +24,25 @@ const CalendarComp = ({ newEvent }) => {
         let calendarApi = calRef.current.getApi();
         calendarApi.addEvent(newEvent);
         rootStore.eventStore.addEvent(newEvent);
-    }, [newEvent]);
+    }, [newEvent, calRef]);
+
+    const handleDateEvent = (event) => {
+        console.log(event);
+        let calendarApi = calRef.current.getApi();
+        calendarApi.changeView('timeGridDay', event.date);
+    };
+
+    const handleEventHover = (info) => {
+        tippy(info.el, {
+            allowHTML: true,
+            content: `
+                <b>${info.event.title}</b> <br/>
+                ${moment(info.event.start).format('HH:mm')} - 
+                ${moment(info.event.end).format('HH:mm')} <br/>
+                ${info.event.extendedProps.desc}
+            `,
+        });
+    };
 
     return (
         <FullCalendar
@@ -37,8 +56,8 @@ const CalendarComp = ({ newEvent }) => {
                 interactionPlugin,
             ]}
             initialView="dayGridMonth"
-            locale="en-GB"
-            initialEvents={rootStore.eventStore.events} //"https://fullcalendar.io/demo-events.json"
+            locale="en-GB" //
+            initialEvents={rootStore.eventStore.events} // "https://fullcalendar.io/demo-events.json"
             themeSystem="bootstrap"
             stickyHeaderDates={true}
             headerToolbar={{
@@ -55,8 +74,8 @@ const CalendarComp = ({ newEvent }) => {
             }}
             firstDay={1}
             slotEventOverlap={false}
-            slotDuration={{minute: 15}}
-            scrollTime={{hour:moment().hour(),minute:0}}
+            slotDuration={{ minute: 15 }}
+            scrollTime={{ hour: moment().hour(), minute: 0 }}
             eventTimeFormat={{
                 // like '14:30:00'
                 hour: '2-digit',
@@ -64,7 +83,10 @@ const CalendarComp = ({ newEvent }) => {
                 meridiem: false,
                 hour12: false,
             }}
+            eventClick={(eventInfo) => console.log(eventInfo)}
+            dateClick={(event) => handleDateEvent(event)}
             displayEventEnd={true}
+            eventMouseEnter={(event) => handleEventHover(event)}
             nowIndicator={true}
             views={{
                 timeGrid: {
@@ -83,7 +105,7 @@ const CalendarComp = ({ newEvent }) => {
                 dayGrid: {
                     dayMaxEvents: 4,
                     moreLinkClick: 'popover',
-                }
+                },
             }}
             allDaySlot={false}
         />
