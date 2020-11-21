@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import { nanoid } from 'nanoid';
-import { observer } from 'mobx-react';
 import DateFnsUtils from '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
 import Alert from '@material-ui/lab/Alert';
@@ -12,7 +11,6 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, DateTimePicker } from '@material-ui/pickers';
 
-import rootStore from '../mobx';
 import CalendarComp from '../components/CalendarComp';
 
 const eventColors = [
@@ -27,6 +25,7 @@ const eventColors = [
 
 const CalEvents = () => {
     const classes = useStyles();
+    const [newEvent, setNewEvent] = useState({});
     const [startDate, setStartDate] = useState(moment().add(15, 'm'));
     // 15 mins from current time
     const [endDate, setEndDate] = useState(moment().add(45, 'm'));
@@ -94,8 +93,6 @@ const CalEvents = () => {
             },
         };
 
-        rootStore.eventStore.addEvent(event);
-
         /* Reset the form fields */
         setTitle('');
         setDesc('');
@@ -148,9 +145,11 @@ const CalEvents = () => {
                                 margin="normal"
                                 label="Start Date &amp; Time"
                                 variant="inline"
-                                format="dd MMM yyyy hh:mm aa"
+                                format="dd MMM yyyy HH:mm" // hh:mm aa for 12 hr
                                 value={startDate}
                                 onChange={(date) => handleStartDate(date)}
+                                minDate={new Date()} // to disable selecting prev dates
+                                // maxDate={moment().add(7,'d')}
                             />
                         </div>
                     </Grid>
@@ -161,7 +160,7 @@ const CalEvents = () => {
                                 margin="normal"
                                 label="End Date &amp; Time"
                                 variant="inline"
-                                format="dd MMM yyyy hh:mm aa"
+                                format="dd MMM yyyy HH:mm"  
                                 value={endDate}
                                 onChange={(date) => handleEndDate(date)}
                             />
@@ -187,7 +186,7 @@ const CalEvents = () => {
                     <Grid item xs={12}>
                         <div style={styles.calDiv}>
                             <CalendarComp
-                                events={rootStore.eventStore.events}
+                                newEvent={newEvent}
                             />
                         </div>
                     </Grid>
@@ -238,4 +237,4 @@ const styles = {
     },
 };
 
-export default observer(CalEvents);
+export default CalEvents;

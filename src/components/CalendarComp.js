@@ -1,35 +1,50 @@
 import React, { useEffect } from 'react';
+import { observer } from 'mobx-react';
+import rootStore from '../mobx';
+import moment from 'moment';
 
 import FullCalendar from '@fullcalendar/react';
+import listPlugin from '@fullcalendar/list';
+import momentPlugin from '@fullcalendar/moment';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
-import momentPlugin from '@fullcalendar/moment';
 import interactionPlugin from '@fullcalendar/interaction';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-const CalendarComp = ({ events }) => {
-    useEffect(() => {}, [events]);
+const CalendarComp = ({ newEvent }) => {
+
+    const calRef = React.createRef();
+
+    useEffect(() => {
+        /* Add event to calendar and rootStore when the value of newEvent changes */
+        let calendarApi = calRef.current.getApi();
+        calendarApi.addEvent(newEvent);
+        rootStore.eventStore.addEvent(newEvent);
+    }, [newEvent]);
+
     return (
         <FullCalendar
+            ref={calRef}
             plugins={[
                 dayGridPlugin,
                 timeGridPlugin,
                 bootstrapPlugin,
                 momentPlugin,
+                listPlugin,
                 interactionPlugin,
             ]}
             initialView="dayGridMonth"
             locale="en-GB"
-            events={events} //"https://fullcalendar.io/demo-events.json"
+            initialEvents={rootStore.eventStore.events} //"https://fullcalendar.io/demo-events.json"
             themeSystem="bootstrap"
             stickyHeaderDates={true}
             headerToolbar={{
                 start: 'prevYear,prev,today,next,nextYear',
                 center: 'title',
-                end: 'timeGridDay,timeGridWeek,dayGridMonth',
+                end: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
             }}
             buttonText={{
                 today: 'Today',
@@ -40,7 +55,8 @@ const CalendarComp = ({ events }) => {
             }}
             firstDay={1}
             slotEventOverlap={false}
-            scrollTime="12:00:00"
+            slotDuration={{minute: 15}}
+            scrollTime={{hour:moment().hour(),minute:0}}
             eventTimeFormat={{
                 // like '14:30:00'
                 hour: '2-digit',
@@ -67,11 +83,11 @@ const CalendarComp = ({ events }) => {
                 dayGrid: {
                     dayMaxEvents: 4,
                     moreLinkClick: 'popover',
-                },
+                }
             }}
             allDaySlot={false}
         />
     );
 };
 
-export default CalendarComp;
+export default observer(CalendarComp);
