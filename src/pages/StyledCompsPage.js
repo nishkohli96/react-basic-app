@@ -12,6 +12,7 @@ import {
     PswdInput,
 } from '../styled-components/StyledComponents';
 import { PageBG, Text } from '../styled-components/ThemedComponents';
+import MuiThemeComp from '../components/MuiThemeComp';
 
 /* A new component based on Button, but with some override styles */
 const TomatoButton = styled(Button)`
@@ -52,9 +53,13 @@ const StyledCompsPage = () => {
                 <NewPageBG>
                     <Text>Themed Text inside a Themed Div</Text>
                     <Text>{t('currentLang')}</Text>
+                    <Text style={{ marginTop: 10 }}>
+                        {' '}
+                        This Text uses theme color{' '}
+                    </Text>
                 </NewPageBG>
-                <Text> This Text uses theme color </Text>
             </Wrapper>
+            <MuiThemeComp />
         </Container>
     );
 };
