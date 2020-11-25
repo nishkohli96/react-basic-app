@@ -21,9 +21,18 @@ const DateTimeComp = ({ inputDate }) => {
 
     /*  Customize as per requirement 
         https://react-day-picker.js.org/examples/input-custom-overlay */
-    const CustomDatePicker = ({ children, ...props }) => {
+    const CustomDatePicker = ({
+        classNames,
+        selectedDay,
+        children,
+        ...props
+    }) => {
         return (
-            <div style={styles.calPos} {...props}>
+            <div
+                className={classNames.overlayWrapper}
+                style={styles.calPos}
+                {...props}
+            >
                 {children}
             </div>
         );
@@ -78,7 +87,7 @@ const DateTimeComp = ({ inputDate }) => {
                 minuteStep={15}
                 allowEmpty={false}
                 inputReadOnly
-            />{' '}
+            />
             &nbsp; &nbsp;
             <DayPickerInput
                 overlayComponent={CustomDatePicker}
