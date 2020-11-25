@@ -4,6 +4,7 @@ import moment from 'moment';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import { formatDate, parseDate } from 'react-day-picker/moment';
 import { DateUtils } from 'react-day-picker';
+import TextField from '@material-ui/core/TextField';
 
 import 'react-day-picker/lib/style.css';
 import 'rc-time-picker/assets/index.css';
@@ -79,17 +80,16 @@ const DateTimeComp = ({ inputDate }) => {
     };
 
     const modifiers = {
-        weekends: { daysOfWeek: [0,6] },
+        weekends: { daysOfWeek: [0, 6] },
         today: new Date(),
-      };
+    };
 
     const modifiersStyles = {
         today: {
-          color: 'white',
-          backgroundColor: '#ffc107',
+            color: '#ffc107',
         },
         weekends: {
-          color: '#ffc107',
+            color: '#ffc107',
         },
     };
 
@@ -105,14 +105,24 @@ const DateTimeComp = ({ inputDate }) => {
             />
             &nbsp; &nbsp;
             <DayPickerInput
+                component={(props) => (
+                    <TextField
+                        multiline
+                        rowsMax={4}
+                        label="Select Date(s)"
+                        style={styles.dateField}
+                        {...props}
+                    />
+                )}
                 overlayComponent={CustomDatePicker}
                 value={selectedDays}
                 keepFocus={false}
                 formatDate={formatDate}
                 parseDate={parseDate}
-                format= "DD MMM yyyy"
+                format="DD MMM yyyy"
                 dayPickerProps={{
                     // the calendar properties
+                    firstDayOfWeek: 1,
                     selectedDays: selectedDays,
                     disabledDays: [
                         {
@@ -122,7 +132,7 @@ const DateTimeComp = ({ inputDate }) => {
                     ],
                     onDayClick: handleDayClick,
                     modifiers: modifiers,
-                    modifiersStyles: modifiersStyles
+                    modifiersStyles: modifiersStyles,
                 }}
             />
         </>
