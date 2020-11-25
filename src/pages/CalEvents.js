@@ -95,7 +95,7 @@ const CalEvents = () => {
             },
         };
         /* For Recuring event the properties would be */
-        // startTime: moment(selectedDays).format('HH:mm'), 
+        // startTime: moment(selectedDays).format('HH:mm'),
         // endTime: endTime.format('HH:mm'), // like 10.15
         // startRecur: moment(selectedDays).toDate(),
         // endRecur: moment(selectedDays).add(7, 'd').toDate(),
@@ -199,7 +199,6 @@ const CalEvents = () => {
                             <CalendarComp newEvent={newEvent} />
                         </div>
                     </Grid>
-
                 </Grid>
 
                 <Snackbar
@@ -211,7 +210,6 @@ const CalEvents = () => {
                         {alertMsg}
                     </Alert>
                 </Snackbar>
-
             </MuiPickersUtilsProvider>
         </div>
     );

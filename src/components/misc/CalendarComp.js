@@ -22,7 +22,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 const CalendarComp = ({ newEvent }) => {
     const calRef = React.createRef();
-    const [mulPkrdate, setMulPkrDate] = useState(new DateObject())
+    const [mulPkrdate, setMulPkrDate] = useState(new DateObject());
     const [calDate, setCalDate] = useState(moment().toDate());
 
     useEffect(() => {
@@ -53,78 +53,78 @@ const CalendarComp = ({ newEvent }) => {
 
     return (
         <>
-        <p>Example of multidate Picker</p>
-        <MultiDatePicker date={mulPkrdate} />
+            <p>Example of multidate Picker</p>
+            <MultiDatePicker inputDate={mulPkrdate} />
 
-        <p> A simple time picker &amp; date picker</p>
-        <DateTimeComp date={calDate}/>
+            <p> A simple time picker &amp; date picker</p>
+            <DateTimeComp inputDate={calDate} />
 
-        <div style={{ width: 800, height: 800, marginTop: 30 }}>
-        <FullCalendar
-            ref={calRef}
-            plugins={[
-                dayGridPlugin,
-                timeGridPlugin,
-                bootstrapPlugin,
-                momentPlugin,
-                listPlugin,
-                interactionPlugin,
-            ]}
-            initialView="dayGridMonth"
-            locale="en-GB" //
-            initialEvents={rootStore.eventStore.events} // "https://fullcalendar.io/demo-events.json"
-            themeSystem="bootstrap"
-            stickyHeaderDates={true}
-            headerToolbar={{
-                start: 'prevYear,prev,today,next,nextYear',
-                center: 'title',
-                end: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
-            }}
-            buttonText={{
-                today: 'Today',
-                day: 'Day',
-                week: 'Week',
-                month: 'Month',
-                list: 'List',
-            }}
-            firstDay={1}
-            slotEventOverlap={false}
-            slotDuration={{ minute: 15 }}
-            scrollTime={{ hour: moment().hour(), minute: 0 }}
-            eventTimeFormat={{
-                // like '14:30:00'
-                hour: '2-digit',
-                minute: '2-digit',
-                meridiem: false,
-                hour12: false,
-            }}
-            eventClick={(eventInfo) => console.log(eventInfo)}
-            dateClick={(event) => handleDateEvent(event)}
-            displayEventEnd={true}
-            eventMouseEnter={(event) => handleEventHover(event)}
-            nowIndicator={true}
-            views={{
-                timeGrid: {
-                    dayHeaderFormat: {
-                        weekday: 'short',
-                        day: 'numeric',
-                        omitCommas: true,
-                    },
-                    slotLabelFormat: {
+            <div style={{ width: 800, height: 800, marginTop: 30 }}>
+                <FullCalendar
+                    ref={calRef}
+                    plugins={[
+                        dayGridPlugin,
+                        timeGridPlugin,
+                        bootstrapPlugin,
+                        momentPlugin,
+                        listPlugin,
+                        interactionPlugin,
+                    ]}
+                    initialView="dayGridMonth"
+                    locale="en-GB" //
+                    initialEvents={rootStore.eventStore.events} // "https://fullcalendar.io/demo-events.json"
+                    themeSystem="bootstrap"
+                    stickyHeaderDates={true}
+                    headerToolbar={{
+                        start: 'prevYear,prev,today,next,nextYear',
+                        center: 'title',
+                        end: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
+                    }}
+                    buttonText={{
+                        today: 'Today',
+                        day: 'Day',
+                        week: 'Week',
+                        month: 'Month',
+                        list: 'List',
+                    }}
+                    firstDay={1}
+                    slotEventOverlap={false}
+                    slotDuration={{ minute: 15 }}
+                    scrollTime={{ hour: moment().hour(), minute: 0 }}
+                    eventTimeFormat={{
+                        // like '14:30:00'
                         hour: '2-digit',
                         minute: '2-digit',
-                        meridiem: 'short',
+                        meridiem: false,
                         hour12: false,
-                    },
-                },
-                dayGrid: {
-                    dayMaxEvents: 4,
-                    moreLinkClick: 'popover',
-                },
-            }}
-            allDaySlot={false}
-        />
-        </div>
+                    }}
+                    eventClick={(eventInfo) => console.log(eventInfo)}
+                    dateClick={(event) => handleDateEvent(event)}
+                    displayEventEnd={true}
+                    eventMouseEnter={(event) => handleEventHover(event)}
+                    nowIndicator={true}
+                    views={{
+                        timeGrid: {
+                            dayHeaderFormat: {
+                                weekday: 'short',
+                                day: 'numeric',
+                                omitCommas: true,
+                            },
+                            slotLabelFormat: {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                meridiem: 'short',
+                                hour12: false,
+                            },
+                        },
+                        dayGrid: {
+                            dayMaxEvents: 4,
+                            moreLinkClick: 'popover',
+                        },
+                    }}
+                    allDaySlot={false}
+                />
+            </div>
         </>
     );
 };
