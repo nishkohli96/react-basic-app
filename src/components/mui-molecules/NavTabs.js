@@ -9,16 +9,17 @@ import Box from '@material-ui/core/Box';
 import PhoneIcon from '@material-ui/icons/Phone';
 
 /* Import Tab Content Components */
-import Textfield from '../components/Textfield';
-import Container from '../components/Container';
-import FullWidthGrid from '../components/FullWidthGrid';
-import CustomExpPanel from '../components/CustomExpPanel';
-import AlertDialog from '../components/AlertDialog';
-import DataDialog from '../components/DataDialog';
-import Chips from '../components/Chips';
-import NestedList from '../components/NestedList';
-import FolderList from '../components/FolderList';
-import TableOptions from '../components/TableOptions';
+import Container from './Container';
+import FolderList from './FolderList';
+import TableOptions from './TableOptions';
+import CustomExpPanel from './CustomExpPanel';
+
+import Chips from '../mui-atoms/Chips';
+import Textfield from '../mui-atoms/Textfield';
+import DataDialog from '../mui-atoms/DataDialog';
+import NestedList from '../mui-atoms/NestedList';
+import AlertDialog from '../mui-atoms/AlertDialog';
+import FullWidthGrid from '../mui-atoms/FullWidthGrid';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;

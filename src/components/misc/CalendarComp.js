@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
-import rootStore from '../mobx';
+import rootStore from '../../mobx';
 import moment from 'moment';
 
 import FullCalendar from '@fullcalendar/react';
@@ -27,7 +27,6 @@ const CalendarComp = ({ newEvent }) => {
     }, [newEvent, calRef]);
 
     const handleDateEvent = (event) => {
-        console.log(event);
         let calendarApi = calRef.current.getApi();
         calendarApi.changeView('timeGridDay', event.date);
     };

@@ -97,8 +97,7 @@ export default function Drawer() {
                         className={classes.menu}
                         onClick={toggleDrawer(anchor, true)}
                     >
-                        {' '}
-                        <MenuIcon />{' '}
+                        <MenuIcon />
                     </IconButton>
                     <SwipeableDrawer
                         anchor={anchor}

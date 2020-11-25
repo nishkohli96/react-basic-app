@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, DateTimePicker } from '@material-ui/pickers';
 
-import CalendarComp from '../components/CalendarComp';
+import CalendarComp from '../components/misc/CalendarComp';
 
 const eventColors = [
     'orange',
@@ -79,15 +79,16 @@ const CalEvents = () => {
     Taking Lower limit as 0 and upper limit as length of eventColors array
 */
     const addEvent = () => {
+        const eventColor =
+            eventColors[Math.floor(Math.random() * (eventColors.length + 1))];
+
         const event = {
             id: nanoid(10),
             title,
             start: moment(startDate).toDate(),
             end: moment(endDate).toDate(),
-            backgroundColor:
-                eventColors[
-                    Math.floor(Math.random() * (eventColors.length + 1))
-                ],
+            backgroundColor: eventColor,
+            borderColor: eventColor,
             extendedProps: {
                 desc,
             },
@@ -150,7 +151,8 @@ const CalEvents = () => {
                                 format="dd MMM yyyy HH:mm" // hh:mm aa for 12 hr
                                 value={startDate}
                                 onChange={(date) => handleStartDate(date)}
-                                minDate={new Date()} // to disable selecting prev dates
+                                disablePast={true} // to disable selecting prev dates
+                                // minDate={new Date().add(3,'d')}
                                 // maxDate={moment().add(7,'d')}
                             />
                         </div>

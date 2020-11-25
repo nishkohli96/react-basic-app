@@ -7,7 +7,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useHistory } from 'react-router-dom';
 
 import ThemeCompsPage from './ThemeCompsPage';
-import LangChange from '../components/LangChange';
+import LangChange from '../components/lib-utilize/LangChange';
 
 const useStyles = makeStyles((theme) => ({
     root: {

@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
-import BlueTheme from '../themes/mui-blue';
+import BlueTheme from '../../themes/mui-blue';
 
 const MuiThemeComp = () => {
     const classes = useStyles();

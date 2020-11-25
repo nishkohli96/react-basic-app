@@ -15,7 +15,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 /* Import Drawer Component */
-import Drawer from './Drawer';
+import Drawer from '../mui-molecules/Drawer';
 
 const useStyles = makeStyles((theme) => ({
     grow: {

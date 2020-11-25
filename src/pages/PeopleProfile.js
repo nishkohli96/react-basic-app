@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useQueryFetch from '../hooks/useQueryFetch';
 import { getAllPersons } from '../graphql/queries';
-import PersonProfile from '../components/PersonProfile';
+import PersonProfile from '../components/misc/PersonProfile';
 
 const Personobj = {
     name: '',
