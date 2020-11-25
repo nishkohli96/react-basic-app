@@ -57,6 +57,10 @@ function Reactbtns() {
     const netlifyurl = 'https://www.netlify.com/';
     const gatsbyurl = 'https://www.gatsbyjs.com/';
 
+    function activateLasers() {
+        history.push('/ui');
+    }
+
     return (
         <div className={classes.root}>
             <p>
@@ -149,13 +153,9 @@ function Reactbtns() {
             </Link>
 
             <Link to="/carousel">Carousel</Link>
-            <Link to="/calendar">Full Calendar</Link>
+            <Link to="/calendar">Full Calendar with Date-Pickers</Link>
         </div>
     );
-}
-
-function activateLasers() {
-    window.location.href = '/ui';
 }
 
 /* Run node server */

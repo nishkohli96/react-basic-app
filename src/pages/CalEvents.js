@@ -10,6 +10,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, DateTimePicker } from '@material-ui/pickers';
+/* https://material-ui-pickers.dev/api/KeyboardDateTimePicker */
 
 import CalendarComp from '../components/misc/CalendarComp';
 
@@ -26,7 +27,7 @@ const eventColors = [
 const CalEvents = () => {
     const classes = useStyles();
     const [newEvent, setNewEvent] = useState({});
-    const [startDate, setStartDate] = useState(moment().add(15, 'm'));
+    const [startDate, setStartDate] = useState(moment().add(15, 'm').toDate());
     // 15 mins from current time
     const [endDate, setEndDate] = useState(moment().add(45, 'm'));
     const [title, setTitle] = useState('');
@@ -93,6 +94,11 @@ const CalEvents = () => {
                 desc,
             },
         };
+        /* For Recuring event the properties would be */
+        // startTime: moment(selectedDays).format('HH:mm'), 
+        // endTime: endTime.format('HH:mm'), // like 10.15
+        // startRecur: moment(selectedDays).toDate(),
+        // endRecur: moment(selectedDays).add(7, 'd').toDate(),
         // console.log(event)
         setNewEvent(event);
 
@@ -149,6 +155,7 @@ const CalEvents = () => {
                                 label="Start Date &amp; Time"
                                 variant="inline"
                                 format="dd MMM yyyy HH:mm" // hh:mm aa for 12 hr
+                                ampm={false}
                                 value={startDate}
                                 onChange={(date) => handleStartDate(date)}
                                 disablePast={true} // to disable selecting prev dates
@@ -192,6 +199,7 @@ const CalEvents = () => {
                             <CalendarComp newEvent={newEvent} />
                         </div>
                     </Grid>
+
                 </Grid>
 
                 <Snackbar
@@ -203,6 +211,7 @@ const CalEvents = () => {
                         {alertMsg}
                     </Alert>
                 </Snackbar>
+
             </MuiPickersUtilsProvider>
         </div>
     );
