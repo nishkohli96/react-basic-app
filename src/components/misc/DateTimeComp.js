@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TimePicker from 'rc-time-picker';
 import moment from 'moment';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import { formatDate } from 'react-day-picker/moment';
+import { formatDate, parseDate } from 'react-day-picker/moment';
 import { DateUtils } from 'react-day-picker';
 
 import 'react-day-picker/lib/style.css';
@@ -78,6 +78,21 @@ const DateTimeComp = ({ inputDate }) => {
         }
     };
 
+    const modifiers = {
+        weekends: { daysOfWeek: [0,6] },
+        today: new Date(),
+      };
+
+    const modifiersStyles = {
+        today: {
+          color: 'white',
+          backgroundColor: '#ffc107',
+        },
+        weekends: {
+          color: '#ffc107',
+        },
+    };
+
     return (
         <>
             <TimePicker
@@ -93,8 +108,9 @@ const DateTimeComp = ({ inputDate }) => {
                 overlayComponent={CustomDatePicker}
                 value={selectedDays}
                 keepFocus={false}
-                format="DD MMM yyyy"
                 formatDate={formatDate}
+                parseDate={parseDate}
+                format= "DD MMM yyyy"
                 dayPickerProps={{
                     // the calendar properties
                     selectedDays: selectedDays,
@@ -105,6 +121,8 @@ const DateTimeComp = ({ inputDate }) => {
                         },
                     ],
                     onDayClick: handleDayClick,
+                    modifiers: modifiers,
+                    modifiersStyles: modifiersStyles
                 }}
             />
         </>
