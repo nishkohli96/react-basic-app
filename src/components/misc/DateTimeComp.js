@@ -15,7 +15,7 @@ const DateTimeComp = ({ inputDate }) => {
 
     useEffect(() => {
         console.log('input ', inputDate);
-        setSelectedDays([inputDate]);
+        setSelectedDays(inputDate);
         setStartTime(moment(inputDate));
     }, [inputDate]);
 
