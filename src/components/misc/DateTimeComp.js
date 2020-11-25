@@ -15,7 +15,7 @@ const DateTimeComp = ({ inputDate }) => {
 
     useEffect(() => {
         console.log('input ', inputDate);
-        setSelectedDays(inputDate);
+        setSelectedDays([inputDate]);
         setStartTime(moment(inputDate));
     }, [inputDate]);
 
@@ -48,27 +48,25 @@ const DateTimeComp = ({ inputDate }) => {
     const handleDayClick = (day) => {
         console.log('selected ', new Date(day));
         console.log(selectedDays);
-        // if(multiple) {
-        //     let dateArr = selectedDays.length >= 1 ? [...selectedDays]: [selectedDays];
+        if (multiple) {
+            let dateArr =
+                selectedDays.length >= 1 ? [...selectedDays] : [selectedDays];
 
-        //     const selectedIndex = dateArr.findIndex(selectedDay =>
-        //         DateUtils.isSameDay(selectedDay, day)
-        //     );
-        //     if(selectedIndex === -1 ) {
-        //         dateArr.push(startTime);
-        //     }
-        //     else if(selectedIndex === 0 && dateArr.length === 1){
-        //         return;
-        //     }
-        //     else if(dateArr.length > 1) {
-        //         dateArr.splice(selectedIndex, 1);
-        //     }
-        //     setSelectedDays(dateArr);
-        //     console.log(dateArr);
-        // }
-        // else {
-        // setSelectedDays(adjustTime(day));
-        // }
+            const selectedIndex = dateArr.findIndex((selectedDay) =>
+                DateUtils.isSameDay(selectedDay, day)
+            );
+            if (selectedIndex === -1) {
+                dateArr.push(adjustTime(day));
+            } else if (selectedIndex === 0 && dateArr.length === 1) {
+                return;
+            } else if (dateArr.length > 1) {
+                dateArr.splice(selectedIndex, 1);
+            }
+            setSelectedDays(dateArr);
+            console.log(dateArr);
+        } else {
+            setSelectedDays([adjustTime(day)]);
+        }
     };
 
     return (
@@ -80,10 +78,10 @@ const DateTimeComp = ({ inputDate }) => {
                 minuteStep={15}
                 allowEmpty={false}
                 inputReadOnly
-            />
-
+            />{' '}
+            &nbsp; &nbsp;
             <DayPickerInput
-                // overlayComponent={CustomDatePicker}
+                overlayComponent={CustomDatePicker}
                 value={selectedDays}
                 keepFocus={false}
                 format="DD MMM yyyy"
@@ -109,6 +107,11 @@ const styles = {
         // position: 'fixed',
         // bottom: 75,
         backgroundColor: 'white',
+    },
+    dateField: {
+        marginTop: 40,
+        width: 400,
+        height: 80,
     },
 };
 
