@@ -70,7 +70,7 @@ const CalendarComp = ({ newEvent }) => {
                         listPlugin,
                         interactionPlugin,
                     ]}
-                    initialView="dayGridMonth"
+                    initialView="timeGridWeek" //"dayGridMonth"
                     locale="en-GB" //
                     initialEvents={rootStore.eventStore.events} // "https://fullcalendar.io/demo-events.json"
                     themeSystem="bootstrap"
