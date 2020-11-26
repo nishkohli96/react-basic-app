@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { observer } from 'mobx-react';
 import rootStore from '../../mobx';
 import moment from 'moment';
@@ -49,6 +50,19 @@ const CalendarComp = ({ newEvent }) => {
                 ${info.event.extendedProps.desc}
             `,
         });
+    };
+
+    /* Modify the event display content */
+    const renderEventContent = (eventInfo) => {
+        return (
+            <>
+                <b>{eventInfo.timeText}</b>
+                <p>
+                    <i>{eventInfo.event.title}</i>
+                </p>
+                <p>{eventInfo.event.extendedProps.desc}</p>
+            </>
+        );
     };
 
     return (
@@ -103,6 +117,7 @@ const CalendarComp = ({ newEvent }) => {
                     displayEventEnd={true}
                     eventMouseEnter={(event) => handleEventHover(event)}
                     nowIndicator={true}
+                    eventContent={renderEventContent}
                     views={{
                         timeGrid: {
                             dayHeaderFormat: {

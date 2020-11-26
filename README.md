@@ -20,4 +20,4 @@ Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sampl
 - Check out [trianglify.io](https://trianglify.io/) and 
   [cssgradient.io](https://cssgradient.io/) for background image ideas and gradient ideas. 
 - Implement [FullCalendar.io](https://fullcalendar.io/) with [MomentJS](https://momentjs.com/)
-- Use [React Day Picker](https://react-day-picker.js.org/)
+- Use [React Day Picker](https://react-day-picker.js.org/) and [React Multi Date Picker](https://shahabyazdi.github.io/react-multi-date-picker/)
