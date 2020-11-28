@@ -1,5 +1,7 @@
 {
   "version": "1.0.0",
+  "author": "Nishant Kohli",
+  "homepage": "https://nishkohli96.github.io/react-basic-app/",
   "private": true,
   "dependencies": {
     "@casl/ability": "^4.1.6",
