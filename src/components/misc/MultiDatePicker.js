@@ -1,31 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker, { DateObject } from 'react-multi-date-picker';
-import moment from 'moment';
+
+/* Check this sandbox 
+    https://codesandbox.io/s/distracted-hopper-31666?file=/src/MultiDatePicker.js:373-386 */
 
 const MultiDatePicker = ({ inputDate }) => {
     const [pickerDate, setPickerDate] = useState(new DateObject());
-    const today = new DateObject();
 
     const CustomComponent = (props) => {
         return <>{this.props.stringDate}</>;
     };
 
-    useEffect(() => {
-        // const newDate = new DateObject(inputDate).convert("gregorian").format("DD MMM YYYY");
-        setPickerDate(inputDate);
-    }, [inputDate]);
+    useEffect(() => setPickerDate(inputDate), [inputDate]);
 
     return (
         <DatePicker
             format="DD MMM YYYY"
             value={pickerDate}
-            onChange={(date) => setPickerDate(date)}
+            onChange={setPickerDate}
             multiple={true}
             style={styles.picker}
-            render={<CustomComponent />}
-            range
-            minDate={moment()}
-            maxDate={new DateObject(today).setDay(today.day + 7)}
+            // render={<CustomComponent />}
+            minDate={inputDate}
+            maxDate={new DateObject(inputDate).add(7, 'days')}
         />
     );
 };

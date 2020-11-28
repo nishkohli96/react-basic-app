@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { observer } from 'mobx-react';
 import rootStore from '../../mobx';
 import moment from 'moment';
@@ -17,7 +16,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import interactionPlugin from '@fullcalendar/interaction';
 
-import 'tippy.js/dist/tippy.css'; // optional for styling
+import 'tippy.js/dist/tippy.css'; // for tooltip styling
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
