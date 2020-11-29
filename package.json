@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "author": "Nishant Kohli",
-  "homepage": "https://nishkohli96.github.io/react-basic-app/",
   "private": true,
   "dependencies": {
     "@casl/ability": "^4.1.6",
@@ -48,7 +47,7 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.8.2",
     "react-i18next": "^11.7.2",
-    "react-multi-date-picker": "^1.7.1",
+    "react-multi-date-picker": "^1.7.2",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",

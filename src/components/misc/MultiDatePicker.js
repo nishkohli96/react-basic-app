@@ -11,7 +11,7 @@ const MultiDatePicker = ({ inputDate }) => {
     const CustomComponent = (props) => {
         return (
             <TextField
-                label="Select Date(s)"
+                label="Choose Date(s)"
                 onClick={props.openCalendar}
                 value={props.stringDate}
             />
