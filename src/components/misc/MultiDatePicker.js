@@ -27,12 +27,21 @@ const MultiDatePicker = ({ inputDate }) => {
             onChange={setPickerDate}
             multiple={true}
             style={styles.picker}
+            calendarPosition="top-center"
             type="custom"
             render={<CustomComponent />}
             minDate={new DateObject()} //{inputDate}
             maxDate={new DateObject().add(7, 'days')}
         />
     );
+    /**
+     * You must install version 1.7.2 for this
+     * availble positions :
+     * "auto",
+     * "top-left", "bottom-left",
+     * "top-right", "bottom-right",
+     * "top-center", "bottom-center"
+     */
 };
 
 const styles = {

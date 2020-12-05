@@ -11,9 +11,13 @@ import { DIV } from '../../styled-components/ThemedComponents';
 const MobXEg = () => {
     /* How to call a computed mobX fn, calling this fn as such didnt update the state */
     // console.log(' rteur  dbl value ',DBLR.double);
+    /*  Required to use toJS(value) to convert obj to a JS object, else wud show it as 
+        some proxy object; already done in object.store.js file */
+    console.log(rootStore.objvar.objValue);
 
     return (
         <DIV>
+            <p>{rootStore.objvar.obj.name}</p>
             <input
                 type="number"
                 value={rootStore.doubler.counterValue}
