@@ -14,12 +14,12 @@ import FolderList from './FolderList';
 import TableOptions from './TableOptions';
 import CustomExpPanel from './CustomExpPanel';
 
-import Chips from '../mui-atoms/Chips';
-import Textfield from '../mui-atoms/Textfield';
-import DataDialog from '../mui-atoms/DataDialog';
-import NestedList from '../mui-atoms/NestedList';
-import AlertDialog from '../mui-atoms/AlertDialog';
-import FullWidthGrid from '../mui-atoms/FullWidthGrid';
+import Chips from '../Mui-Atoms/Chips';
+import Textfield from '../Mui-Atoms/Textfield';
+import DataDialog from '../Mui-Atoms/DataDialog';
+import NestedList from '../Mui-Atoms/NestedList';
+import AlertDialog from '../Mui-Atoms/AlertDialog';
+import FullWidthGrid from '../Mui-Atoms/FullWidthGrid';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;

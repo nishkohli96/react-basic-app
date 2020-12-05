@@ -1,21 +1,21 @@
 import React from 'react';
 import { Redirect, Route, Switch, BrowserRouter } from 'react-router-dom';
 
-import CaslEg from './pages/CaslEg';
-import FormPage from './pages/FormPage';
-import CalEvents from './pages/CalEvents';
-import Dashboard from './pages/Dashboard';
-import Homescreen from './pages/Homescreen';
-import UIComponents from './pages/UIComponents';
-import ReactHookForm from './pages/ReactHookForm';
-import PeopleProfile from './pages/PeopleProfile';
-import ThemeCompsPage from './pages/ThemeCompsPage';
-import StyledCompsPage from './pages/StyledCompsPage';
+import CaslEg from 'Pages/CaslEg';
+import FormPage from 'Pages/FormPage';
+import CalEvents from 'Pages/CalEvents';
+import Dashboard from 'Pages/Dashboard';
+import Homescreen from 'Pages/Homescreen';
+import UIComponents from 'Pages/UIComponents';
+import ReactHookForm from 'Pages/ReactHookForm';
+import PeopleProfile from 'Pages/PeopleProfile';
+import ThemeCompsPage from 'Pages/ThemeCompsPage';
+import StyledCompsPage from 'Pages/StyledCompsPage';
 
-import Carousel from './components/misc/Carousel';
-import PageNotFound from './components/misc/PageNotFound';
-import ReduxCounter from './components/lib-utilize/ReduxCounter';
-import { AppThemeContext } from './context/AppThemeContext';
+import Carousel from 'components/Misc/Carousel';
+import PageNotFound from 'components/Misc/PageNotFound';
+import ReduxCounter from 'components/Lib-Utilize/ReduxCounter';
+import { AppThemeContext } from 'Context/AppThemeContext';
 import './App.css';
 
 const App = () => {

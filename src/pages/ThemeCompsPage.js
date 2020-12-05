@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 
-import { Button, Title } from '../styled-components/StyledComponents';
-import ThemedButton from '../styled-components/ThemeButton';
-import { PageBG, Text, DIV } from '../styled-components/ThemedComponents';
-import { ThemeToggleContext } from '../context/AppThemeContext';
+import { Button, Title } from 'Styled-Comps/StyledComponents';
+import ThemedButton from 'Styled-Comps/ThemeButton';
+import { PageBG, Text, DIV } from 'Styled-Comps/ThemedComponents';
+import { ThemeToggleContext } from 'Context/AppThemeContext';
 import InvertColorsIcon from '@material-ui/icons/InvertColors';
 
 /* We are passing a default theme for Buttons that arent wrapped in the ThemeProvider */

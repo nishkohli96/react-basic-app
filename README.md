@@ -6,6 +6,7 @@
 
 Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sample app and performing major operations such as -
 
+- Absolute Import modules by adding jsconfig.json file. Check this [Link](https://medium.com/hackernoon/absolute-imports-with-create-react-app-4c6cfb66c35d).
 - Fetching data from a [NodeJS](https://nodejs.org/en/) Server
 - Add [Pre-Commit Hook](https://www.npmjs.com/package/husky) with [Eslint](https://www.npmjs.com/package/eslint) & [Prettier](https://www.npmjs.com/package/prettier)
 - UI design using [MaterialUI](https://material-ui.com/)

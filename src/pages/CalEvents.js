@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, DateTimePicker } from '@material-ui/pickers';
 /* https://material-ui-pickers.dev/api/KeyboardDateTimePicker */
 
-import CalendarComp from '../components/misc/CalendarComp';
+import CalendarComp from '../components/Misc/CalendarComp';
 
 const eventColors = [
     'orange',

@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "baseUrl": "src",
+      "paths": {
+        "@Mui-Atoms/*": ["./components/Mui-Atoms/*"]
+      }
+    },
+    "include": ["src/**/*"]
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../assets/styles/style.css';
-import NavTabs from '../components/mui-molecules/NavTabs';
+import 'Assets/Styles/style.css';
+import NavTabs from '../components/Mui-Molecules/NavTabs';
 
 class UIComponents extends React.Component {
     render() {

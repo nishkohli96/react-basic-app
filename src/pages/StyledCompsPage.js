@@ -10,9 +10,9 @@ import {
     Button,
     Input,
     PswdInput,
-} from '../styled-components/StyledComponents';
-import { PageBG, Text } from '../styled-components/ThemedComponents';
-import MuiThemeComp from '../components/mui-atoms/MuiThemeComp';
+} from 'Styled-Comps/StyledComponents';
+import { PageBG, Text } from 'Styled-Comps/ThemedComponents';
+import MuiThemeComp from 'components/Mui-Atoms/MuiThemeComp';
 
 /* A new component based on Button, but with some override styles */
 const TomatoButton = styled(Button)`

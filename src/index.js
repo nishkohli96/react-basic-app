@@ -7,8 +7,8 @@ import geti18config from './i18-next/i18config';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/redux-persist';
-import { AbilityContext } from './casl/Can';
-import ability from './casl/Ability';
+import { AbilityContext } from 'Casl/Can';
+import ability from 'Casl/Ability';
 
 const ReactApp = () => {
     return (

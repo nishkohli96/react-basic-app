@@ -1,5 +1,5 @@
 import React from 'react';
-import Can from '../casl/Can';
+import Can from 'Casl/Can';
 
 const CaslEg = () => {
     /*  Based upon the value of the variable "ability" defined in Ability.js, you 

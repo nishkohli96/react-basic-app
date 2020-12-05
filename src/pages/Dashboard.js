@@ -1,6 +1,6 @@
 import React from 'react';
-import NavbarTop from '../components/mui-atoms/NavbarTop';
-import GridLayout from '../components/mui-molecules/GridLayout';
+import NavbarTop from '../components/Mui-Atoms/NavbarTop';
+import GridLayout from '../components/Mui-Molecules/GridLayout';
 
 class Dashboard extends React.Component {
     render() {

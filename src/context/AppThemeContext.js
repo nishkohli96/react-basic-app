@@ -1,8 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { DarkTheme } from '../themes/dark';
-import { LightTheme } from '../themes/light';
+import { DarkTheme } from '../Themes/dark';
+import { LightTheme } from '../Themes/light';
 
 export const ThemeToggleContext = React.createContext();
 

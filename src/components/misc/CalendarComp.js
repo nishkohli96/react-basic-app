@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
-import rootStore from '../../mobx';
+import rootStore from '../../Mobx-Store';
 import moment from 'moment';
 import tippy from 'tippy.js';
 import MultiDatePicker from './MultiDatePicker';
