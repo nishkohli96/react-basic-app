@@ -12,9 +12,9 @@ import PeopleProfile from 'Pages/PeopleProfile';
 import ThemeCompsPage from 'Pages/ThemeCompsPage';
 import StyledCompsPage from 'Pages/StyledCompsPage';
 
-import Carousel from 'components/Misc/Carousel';
-import PageNotFound from 'components/Misc/PageNotFound';
-import ReduxCounter from 'components/Lib-Utilize/ReduxCounter';
+import Carousel from '@Misc/Carousel';
+import PageNotFound from '@Misc/PageNotFound';
+import ReduxCounter from '@LibUtilize/ReduxCounter';
 import { AppThemeContext } from 'Context/AppThemeContext';
 import './App.css';
 
