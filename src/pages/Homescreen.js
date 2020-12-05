@@ -154,7 +154,7 @@ function Reactbtns() {
 
             <Link to="/carousel">Carousel</Link>
             <Link to="/calendar">Full Calendar with Date-Pickers</Link>
-            <Link to="/skype"> Open Skype</Link>
+        
         </div>
     );
 }

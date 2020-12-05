@@ -13,7 +13,6 @@ import ThemeCompsPage from './pages/ThemeCompsPage';
 import StyledCompsPage from './pages/StyledCompsPage';
 
 import Carousel from './components/misc/Carousel';
-import SkypeApp from './components/lib-utilize/SkypeApp';
 import PageNotFound from './components/misc/PageNotFound';
 import ReduxCounter from './components/lib-utilize/ReduxCounter';
 import { AppThemeContext } from './context/AppThemeContext';
@@ -33,7 +32,6 @@ const App = () => {
                     <Route path="/people" component={PeopleProfile} />
                     <Route path="/redux" component={ReduxCounter} />
                     <Route path="/rhform" component={ReactHookForm} />
-                    <Route path="/skype" component={SkypeApp} />
                     <Route path="/styled" component={StyledCompsPage} />
                     <Route path="/theme" component={ThemeCompsPage} />
                     <Route path="/ui" component={UIComponents} />
