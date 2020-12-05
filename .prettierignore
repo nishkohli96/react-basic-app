@@ -8,6 +8,9 @@ src/logo.svg
 src/assets
 
 .env
+.env.prod
+.env.testing
+
 .eslintrc.json
 .gitignore
 .prettierignore

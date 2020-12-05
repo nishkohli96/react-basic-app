@@ -72,7 +72,9 @@ function Reactbtns() {
                     GatsbyJS.
                 </a>
             </p>
-            {/* <p><b>Env being used is {process.env.REACT_APP_ENV_VAR}</b></p> */}
+            <p>
+                Env being used is <b>{process.env.REACT_APP_ENV_VAR}</b>
+            </p>
             <Button
                 className={classes.gradientBtn2}
                 endIcon={<CloudUploadIcon />}
@@ -154,7 +156,6 @@ function Reactbtns() {
 
             <Link to="/carousel">Carousel</Link>
             <Link to="/calendar">Full Calendar with Date-Pickers</Link>
-        
         </div>
     );
 }
