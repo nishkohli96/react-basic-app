@@ -14,6 +14,7 @@ import StyledCompsPage from 'Pages/StyledCompsPage';
 
 import Carousel from '@Misc/Carousel';
 import PageNotFound from '@Misc/PageNotFound';
+import NestedRoutes from '@Misc/NestedRoutes';
 import ReduxCounter from '@LibUtilize/ReduxCounter';
 import { AppThemeContext } from 'Context/AppThemeContext';
 import './App.css';
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path="/casl" component={CaslEg} />
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/form" component={FormPage} />
+                    <Route path="/nested" component={NestedRoutes} />
                     <Route path="/people" component={PeopleProfile} />
                     <Route path="/redux" component={ReduxCounter} />
                     <Route path="/rhform" component={ReactHookForm} />

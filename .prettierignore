@@ -4,6 +4,7 @@ NodeServer/package-lock.json
 
 public
 build
+dist
 src/logo.svg
 src/assets
 

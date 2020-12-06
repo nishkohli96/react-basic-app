@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
@@ -7,6 +7,7 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 import ThemeCompsPage from './ThemeCompsPage';
 import LangChange from 'components/Lib-Utilize/LangChange';
+import PageLinks from '@Misc/PageLinks';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -108,54 +109,7 @@ function Reactbtns() {
                 GoTo Styled Components
             </BootstrapButton>
 
-            <Link
-                to={{
-                    pathname: '/ui',
-                    data: { name: 'nish', msg: 'Hi people' },
-                }}
-            >
-                Send data to route
-            </Link>
-
-            <Link
-                to={{
-                    pathname: '/rhform',
-                }}
-            >
-                Go to react-hook form
-            </Link>
-
-            <Link
-                to={{
-                    pathname: '/dashboard',
-                }}
-            >
-                Go to dashboard
-            </Link>
-            <Link
-                to={{
-                    pathname: '/redux',
-                }}
-            >
-                Redux &amp; MobX
-            </Link>
-            <Link
-                to={{
-                    pathname: '/people',
-                }}
-            >
-                Check Graphql fetch
-            </Link>
-            <Link
-                to={{
-                    pathname: '/casl',
-                }}
-            >
-                Casl Example
-            </Link>
-
-            <Link to="/carousel">Carousel</Link>
-            <Link to="/calendar">Full Calendar with Date-Pickers</Link>
+            <PageLinks />
         </div>
     );
 }
