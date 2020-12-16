@@ -1,5 +1,11 @@
 import React from 'react';
-import { Link, Route, useParams, useRouteMatch } from 'react-router-dom';
+import {
+    Link,
+    Route,
+    useParams,
+    useRouteMatch,
+    useLocation,
+} from 'react-router-dom';
 
 const Item = () => {
     const { name } = useParams();
@@ -13,10 +19,15 @@ const Item = () => {
 
 const NestedRoutes = () => {
     const { url, path } = useRouteMatch();
+    const location = useLocation();
     console.log(useRouteMatch());
 
     return (
         <div>
+            <p> Getting Data from the Link of Prev Page</p>
+            <p>Name: {location.state.name}</p>
+            <p>Msg: {location.state.msg}</p>
+
             <ul>
                 <li>
                     <Link to={`${url}/shoes`}>Shoes</Link>
@@ -28,7 +39,7 @@ const NestedRoutes = () => {
                     <Link to={`${url}/footwear`}>Footwear</Link>
                 </li>
             </ul>
-            
+
             <Route path={`${path}/:name`}>
                 <Item />
             </Route>

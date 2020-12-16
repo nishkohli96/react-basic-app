@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 const PageLinks = () => {
     return (
         <>
+            <Link to="/ui">UI</Link>
+
             <Link
                 to={{
-                    pathname: '/ui',
-                    data: { name: 'nish', msg: 'Hi people' },
+                    pathname: '/nested',
+                    state: { name: 'nish', msg: 'Hi people' },
                 }}
             >
-                Send data to route
+                Nested Routes
             </Link>
-
-            <Link to="/nested">Nested Routes</Link>
 
             <Link
                 to={{
@@ -46,7 +46,7 @@ const PageLinks = () => {
             >
                 Check Graphql fetch
             </Link>
-            
+
             <Link
                 to={{
                     pathname: '/casl',
