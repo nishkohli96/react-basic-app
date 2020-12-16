@@ -10,6 +10,8 @@ import { store, persistor } from './redux/redux-persist';
 import { AbilityContext } from 'Casl/Can';
 import ability from 'Casl/Ability';
 
+import './Assets/Styles/index.css';
+
 const ReactApp = () => {
     return (
         <React.StrictMode>

@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 const PageLinks = () => {
     return (
         <>
+            <p className="text-blue-500 font-bold">
+                {' '}
+                Click on any of the links
+            </p>
             <Link to="/ui">UI</Link>
 
             <Link

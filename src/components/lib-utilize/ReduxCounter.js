@@ -4,7 +4,6 @@ import { store } from '../../redux/redux-persist';
 import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
 import MobXEg from './MobXEg';
-import '../../index.css';
 
 /*  If we use normal ReduxStore, then we loose the changes of counter & to-do list,
     whenever the component is re-rendered, using redux-persist solves this issue.  */

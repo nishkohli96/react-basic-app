@@ -25,7 +25,7 @@ const NestedRoutes = () => {
     return (
         <div>
             <p> Getting Data from the Link of Prev Page</p>
-            <p>Name: {location.state.name}</p>
+            <p className="text-red-400">Name: {location.state.name}</p>
             <p>Msg: {location.state.msg}</p>
 
             <ul>

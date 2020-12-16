@@ -17,7 +17,6 @@ import PageNotFound from '@Misc/PageNotFound';
 import NestedRoutes from '@Misc/NestedRoutes';
 import ReduxCounter from '@LibUtilize/ReduxCounter';
 import { AppThemeContext } from 'Context/AppThemeContext';
-import './App.css';
 
 const App = () => {
     return (

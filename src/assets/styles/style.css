@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .header {
     color: #007aba;
     font-size: 18px;

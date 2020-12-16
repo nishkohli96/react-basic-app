@@ -1,4 +1,8 @@
-const { override, addWebpackAlias } = require('customize-cra');
+const {
+    override,
+    addWebpackAlias,
+    addPostcssPlugins,
+} = require('customize-cra');
 const path = require('path');
 
 module.exports = override(
@@ -8,5 +12,6 @@ module.exports = override(
             __dirname,
             './src/components/Lib-Utilize'
         ),
-    })
+    }),
+    addPostcssPlugins([require('tailwindcss'), require('autoprefixer')])
 );
