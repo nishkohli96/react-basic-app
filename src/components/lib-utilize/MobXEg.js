@@ -8,6 +8,17 @@ import { DIV } from 'Styled-Comps/ThemedComponents';
 /* Directly import and call Doubler store like this */
 // const DBLR = new Doubler();
 
+/* In case Strict mode is enabled, observable value would have to been changed by explicitly calling the action, eg -> 
+
+isAdmin : observable 
+
+loginUserService({ email, password }).then(
+    action((response) => {  // import { action } from 'mobx'
+        this.loggedIn = true;
+    })
+);
+*/
+
 const MobXEg = () => {
     /* How to call a computed mobX fn, calling this fn as such didnt update the state */
     // console.log(' rteur  dbl value ',DBLR.double);
