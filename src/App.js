@@ -18,6 +18,7 @@ import NestedRoutes from '@Misc/NestedRoutes';
 import ReduxCounter from '@LibUtilize/ReduxCounter';
 import { AppThemeContext } from 'Context/AppThemeContext';
 
+/* In case you want to redirect user at 404, use the commented code.*/
 const App = () => {
     return (
         <AppThemeContext>
@@ -36,8 +37,9 @@ const App = () => {
                     <Route path="/styled" component={StyledCompsPage} />
                     <Route path="/theme" component={ThemeCompsPage} />
                     <Route path="/ui" component={UIComponents} />
-                    <Route path="/404" component={PageNotFound} />
-                    <Redirect to="/404" />
+                    <Route component={PageNotFound} />
+                    {/* <Route path="/404" component={PageNotFound} />
+                    <Redirect to="/404" /> */}
                 </Switch>
             </BrowserRouter>
         </AppThemeContext>
