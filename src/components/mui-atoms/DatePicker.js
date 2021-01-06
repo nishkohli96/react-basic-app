@@ -2,6 +2,7 @@ import 'date-fns';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
+import TextField from '@material-ui/core/TextField';
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
@@ -17,7 +18,13 @@ export default function DatePicker() {
         setSelectedDate(date);
         console.log(date);
     };
-
+    
+    const DateTextField = (props) => {
+        return <TextField {...props} disabled={true} />;
+    };
+    
+    /* Check complete list here - https://material-ui-pickers.dev/api/KeyboardDatePicker */ 
+        
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <Grid container justify="space-around">
@@ -30,6 +37,8 @@ export default function DatePicker() {
                     label="Date picker inline"
                     value={selectedDate}
                     onChange={handleDateChange}
+                    autoOk={true}
+                    TextFieldComponent={DateTextField}
                     KeyboardButtonProps={{
                         'aria-label': 'change date',
                     }}
