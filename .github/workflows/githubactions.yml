@@ -1,0 +1,26 @@
+name: github-actions
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            nodeenv:
+                node-version: [14.x]
+        
+        steps:
+            - name: Git Checkout
+              uses: actions/checkout@v2
+
+            - name: Use Node.js ${{ nodeenv.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ nodeenv.node-version }}
+
+            - name: Installing dependencies
+              run: yarn install
+
+            - name: Building react-app
+              run: yarn build

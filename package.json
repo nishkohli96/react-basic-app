@@ -70,7 +70,7 @@
     "start": "env-cmd -f .env react-app-rewired start",
     "start-prod": "env-cmd -f .env.prod react-app-rewired start",
     "start-testing": "env-cmd -f .env.testing react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "env-cmd -f .env.prod react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
