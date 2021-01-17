@@ -7,20 +7,20 @@ jobs:
         runs-on: ubuntu-latest
 
         strategy:
-            nodeenv:
+            matrix:
                 node-version: [14.x]
         
         steps:
             - name: Git Checkout
               uses: actions/checkout@v2
 
-            - name: Use Node.js ${{ nodeenv.node-version }}
+            - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
-                  node-version: ${{ nodeenv.node-version }}
+                  node-version: ${{ matrix.node-version }}
 
-            - name: Installing dependencies
+            - name: Install dependencies
               run: yarn install
 
-            - name: Building react-app
+            - name: Build react-app
               run: yarn build
