@@ -11,6 +11,7 @@ import ReactHookForm from 'Pages/ReactHookForm';
 import PeopleProfile from 'Pages/PeopleProfile';
 import ThemeCompsPage from 'Pages/ThemeCompsPage';
 import StyledCompsPage from 'Pages/StyledCompsPage';
+import ReactHookFormAdv from '@Pages/ReactHookFormAdv';
 
 import Carousel from '@Misc/Carousel';
 import PageNotFound from '@Misc/PageNotFound';
@@ -34,6 +35,7 @@ const App = () => {
                     <Route path="/people" component={PeopleProfile} />
                     <Route path="/redux" component={ReduxCounter} />
                     <Route path="/rhform" component={ReactHookForm} />
+                    <Route path="/rhf-adv" component={ReactHookFormAdv} />
                     <Route path="/styled" component={StyledCompsPage} />
                     <Route path="/theme" component={ThemeCompsPage} />
                     <Route path="/ui" component={UIComponents} />

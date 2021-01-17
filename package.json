@@ -1,4 +1,5 @@
 {
+  "name": "react-basic-app",
   "version": "1.0.0",
   "author": "Nishant Kohli",
   "private": true,
@@ -50,7 +51,7 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-day-picker": "^7.4.8",
     "react-dom": "^16.13.1",
-    "react-hook-form": "^6.8.2",
+    "react-hook-form": "^6.14.1",
     "react-i18next": "^11.7.2",
     "react-multi-date-picker": "^2.0.1",
     "react-redux": "^7.2.1",

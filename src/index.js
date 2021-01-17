@@ -14,17 +14,15 @@ import './Assets/Styles/index.css';
 
 const ReactApp = () => {
     return (
-        <React.StrictMode>
-            <Provider store={store}>
-                <PersistGate loading={null} persistor={persistor}>
-                    <AbilityContext.Provider value={ability}>
-                        <I18nextProvider i18n={geti18config()}>
-                            <App />
-                        </I18nextProvider>
-                    </AbilityContext.Provider>
-                </PersistGate>
-            </Provider>
-        </React.StrictMode>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <AbilityContext.Provider value={ability}>
+                    <I18nextProvider i18n={geti18config()}>
+                        <App />
+                    </I18nextProvider>
+                </AbilityContext.Provider>
+            </PersistGate>
+        </Provider>
     );
 };
 

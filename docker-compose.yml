@@ -1,0 +1,26 @@
+# docker-compose up --build will run all the services, so if you make any
+# changes, it would run again
+
+version: '3'
+services:
+    react-app:
+        # build: . if Dockerfile is present else
+        build:
+            context: . # else the folder name if react inside another folder
+            dockerfile: Dockerfile.dev
+        ports:
+            - '3000:3000'
+        volumes:
+            - /app/node_modules
+            - .:/app # map current folder to app folder inside the container
+        environment:
+            - CHOKIDAR_USEPOLLING=true # for hot-reloading of app in windows
+    # for testing
+    tests:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /app/node_modules
+            - .:/app
+        command: ['npm', 'run', 'test'] # override the default command

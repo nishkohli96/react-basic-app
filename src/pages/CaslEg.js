@@ -1,5 +1,6 @@
 import React from 'react';
 import Can from 'Casl/Can';
+import * as Logo from '../Assets/images/Fiery_ace.jpg';
 
 const CaslEg = () => {
     /*  Based upon the value of the variable "ability" defined in Ability.js, you 
@@ -22,6 +23,12 @@ const CaslEg = () => {
                 Based upon the value of variable &apos;ability&apos; defined in
                 Ability.js, you can see the content of this page.
             </p>
+
+            <img
+                src={Logo}
+                alt="somelogo"
+                style={{ width: 100, height: 100 }}
+            />
         </>
     );
 };

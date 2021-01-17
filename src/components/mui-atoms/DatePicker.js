@@ -18,13 +18,13 @@ export default function DatePicker() {
         setSelectedDate(date);
         console.log(date);
     };
-    
+
     const DateTextField = (props) => {
         return <TextField {...props} disabled={true} />;
     };
-    
-    /* Check complete list here - https://material-ui-pickers.dev/api/KeyboardDatePicker */ 
-        
+
+    /* Check complete list here - https://material-ui-pickers.dev/api/KeyboardDatePicker */
+
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <Grid container justify="space-around">

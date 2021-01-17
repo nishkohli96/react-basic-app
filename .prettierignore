@@ -2,6 +2,8 @@ NodeServer/node_modules
 NodeServer/package.json
 NodeServer/package-lock.json
 
+Dockerfile.dev
+
 public
 build
 dist

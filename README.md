@@ -24,3 +24,5 @@ Learning the fundamentals of [ReactJS](https://reactjs.org/) by creating a sampl
 - Implement [FullCalendar.io](https://fullcalendar.io/) with [MomentJS](https://momentjs.com/)
 - Use [React Day Picker](https://react-day-picker.js.org/) and [React Multi Date Picker](https://shahabyazdi.github.io/react-multi-date-picker/)
 - Integrated with [Tailwind CSS](https://tailwindcss.com/). Please check out my [learn-gatsby-tailwind](https://github.com/nishkohli96/learn-gastby-tailwind) or [react-libs](https://github.com/nishkohli96/react-libs) repository for complete config and usage of Tailwind CSS.
+- Run Dockerfile.dev by running the following command -
+``` docker build -f Dockerfile.dev . ```
