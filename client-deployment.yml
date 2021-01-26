@@ -1,0 +1,35 @@
+# use deployment in dev & prod env
+
+# check client-node-port.yaml for service to run
+
+# to run, "minikube ip" in ur cmd. paste that in your browser
+# and the port is the port 31515 in client-node-port.yaml file
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+    name: client-deployment
+
+# run "kubectl get pods" to get pod status created by this deployment
+
+spec: 
+    replicas: 1 # number of instances
+    
+    selector:
+        matchLabels: 
+            component: web
+
+    template:  # configuration for each pod
+        metadata:
+            labels:
+                component: web
+
+        spec:
+            containers:
+                - name: client
+                  image: stephengrider/multi-client
+                  ports: 
+                      - containerPort: 3000
+# nginx client in docker img listens on the above port 
+    

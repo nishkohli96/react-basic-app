@@ -1,0 +1,17 @@
+# service to access anything inside put running pod
+# including routing traffic, even when a pod gets created/deleted.
+
+apiVersion: v1
+kind: Service
+
+metadata:
+    name: client-node-port
+
+spec: 
+    type: NodePort
+    ports: 
+        - port: 3150
+          targetPort: 3000
+          nodePort: 31515
+    selector:
+        component: web

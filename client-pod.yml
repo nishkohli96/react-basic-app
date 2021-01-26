@@ -1,0 +1,23 @@
+#  k8s file
+
+# run using the below cmd
+# kubectl apply -f client-pod.yml
+# pods are used for developement only
+
+# check client-node-port.yaml for service to run
+
+apiVersion: v1
+kind: Pod
+
+metadata:
+    name: client-pod
+    labels:
+        component: web
+
+spec:
+    containers:
+        - name: client
+          image: stephengrider/multi-client
+          # has to be an already built image on docker-hub
+          ports: 
+              - containerPort: 3000
