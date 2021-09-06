@@ -1,5 +1,7 @@
 # React-Basic-App
 
+**Do checkout my [react-libs](https://github.com/nishkohli96/react-libs) repository with react-v17 and other useful libraries.**
+
 **Preview the site by clicking the following URL**
 
 [learnreactbynish.netlify.app/](https://learnreactbynish.netlify.app/)
